@@ -9,18 +9,14 @@ Run the SQLIOSIM tool with a custom configuration to verify disk I/O integrity.
 ### Step 1: Prepare the Environment
 
 - Open a terminal with **Administrator rights** (right-click CMD or PowerShell > *Run as administrator*).
-- Create a working folder on the C: drive:
-```powershell
-mkdir C:\sqliosim
-```
-- Copy the provided configuration file `sqliosim.cfg` into this directory.
+
 
 ---
 
 ### Step 2: Locate SQLIOSIM
 
 - Navigate to the SQL Server Binn directory:
-```powershell
+```cmd
 cd "C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Binn"
 ```
 - Confirm that `SQLIOSim.exe` exists.
@@ -29,16 +25,8 @@ cd "C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Binn"
 
 ### Step 3: Start SQLIOSIM with Custom Config
 
-- Launch `SQLIOSim.exe` from the `Binn` directory.
-- In the SQLIOSIM window:
-  - Go to **File > Load configuration file…**
-  - Select the config file you copied earlier:
-    ```
-    C:\sqliosim\sqliosim.cfg
-    ```
-  - In the main interface, ensure the **Log file path** is set to:
-    ```
-    C:\sqliosim\SQLIOSim.log
+- Launch `SQLIOSim.exe` from the `Binn` directory by executing sqliosim.exe
+
     ```
 
 ---
