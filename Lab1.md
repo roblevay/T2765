@@ -1,15 +1,15 @@
 
 # SQL Server Introductory Exercises
 
-### Exercise 1: Identify Version and Edition (20 min)
+### Exercise 1: Version, Edition, and Instance Management (40 min)
 
-**Step 1: Using Object Explorer (GUI)**
+**Step 1: Identify Version and Edition Using Object Explorer (GUI)**
 - Open **SQL Server Management Studio (SSMS)**.
 - Connect to your default instance (`North`).
 - Right-click on your instance name in Object Explorer and select **Properties**.
 - Note down the **Product version** and **Edition** from the General page.
 
-**Step 2: Using T-SQL queries**
+**Step 2: Identify Version and Edition Using T-SQL**
 - Open a new query window in SSMS.
 - Run these queries:
 ```sql
@@ -18,7 +18,7 @@ SELECT SERVERPROPERTY('Edition') AS Edition;
 ```
 - Verify if results match the information obtained via Object Explorer.
 
-**Step 3: Using sqlcmd (command-line)**
+**Step 3: Identify Version and Edition Using sqlcmd**
 - Open Command Prompt.
 - Connect to the instance using sqlcmd:
 ```shell
@@ -32,16 +32,34 @@ SELECT SERVERPROPERTY('Edition');
 GO
 ```
 - Compare the results again.
-- Repeat step 1-3 with the name instance North\A
 
-### Exercise 2: Manage SQL Server Instances (20 min)
+**Step 4: Manage SQL Server Instances Using Configuration Manager**
 - Open **SQL Server Configuration Manager**.
 - Locate your two SQL Server instances (`North` and `North\A`).
 - Stop and start the named instance (`North\A`).
+
+**Step 5: Start/Stop Services Using Command Line**
+- Open **Command Prompt**.
+- First, type:
+```shell
+net start
+```
+- This will list all currently running services.
+- Try to stop and start the SQL Server services:
+```shell
+net stop MSSQLSERVER
+net start MSSQLSERVER
+net stop MSSQL$A
+net start MSSQL$A
+```
+- Try doing this **without admin rights** and observe what happens.
+- Then try again using **Run as administrator**.
+- Reflect on why admin access is required for managing services.
+
 - In SSMS, reconnect to both instances to ensure they are running and accessible.
 - Discuss the importance of properly managing instances (isolation, security, and resources).
 
-### Exercise 3: SQL Server Memory Configuration (20 min)
+### Exercise 2: SQL Server Memory Configuration (20 min)
 - Connect to the default instance (`North`) using SSMS.
 - Execute these queries to view current memory configuration:
 ```sql
