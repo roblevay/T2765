@@ -4,9 +4,9 @@
 ### Exercise 1: Test Disk I/O Correctness with SQLIOSIM (15–20 min)
 
 **Step 1: Download and Launch SQLIOSIM**
-- Download SQLIOSIM from Microsoft:  
-  https://learn.microsoft.com/en-us/sql/tools/sqliosim/sqliosim-utility  
-- Install or extract the utility, then launch it from the Start menu or its installation folder.
+- Download SQLIOSIM utility from Microsoft:
+  https://aka.ms/sqliosim-download
+- Extract the files and launch `SQLIOSim.exe`.
 
 **Step 2: Configure and Run Test**
 - Select the drive where SQL Server data files are (or will be) stored.
