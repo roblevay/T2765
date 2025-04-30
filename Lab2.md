@@ -42,7 +42,7 @@ cd "C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Binn"
 
 - Open the log file in Notepad:
 ```powershell
-notepad C:\sqliosim\SQLIOSim.log
+notepad C:\SQLIOSim.log
 ```
 - Green = OK, Yellow = warnings (tolerable on VMs), Red = serious problems.
 
