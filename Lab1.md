@@ -32,6 +32,7 @@ SELECT SERVERPROPERTY('Edition');
 GO
 ```
 - Compare the results again.
+- Repeat step 1-3 with the name instance North\A
 
 ### Exercise 2: Manage SQL Server Instances (20 min)
 - Open **SQL Server Configuration Manager**.
