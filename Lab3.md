@@ -11,6 +11,7 @@ Simulate a SQL Server upgrade using the Data Migration Assistant (DMA) — witho
 Open SQL Server Management Studio and run the following script:
 
 ```sql
+DROP DATABASE IF EXISTS OldDb
 CREATE DATABASE OldDb;
 GO
 USE OldDb
@@ -22,11 +23,14 @@ CREATE TABLE Test (
 );
 
 INSERT INTO Test VALUES (1, 'Hello'), (2, 'World');
-
+GO
 CREATE PROCEDURE LegacyProc AS
 BEGIN
     RAISERROR('This is deprecated', 10, 1);  -- Intentionally deprecated syntax
 END;
+GO
+USE master
+GO
 ```
 
 ---
