@@ -33,10 +33,11 @@ sqliosim.exe
 
 ### Step 4: Run the Simulation
 
-- Set the cycle duration to 30 and test cycles to 4. Fill out the other variables to your liking.
-- Clik OK
+- Set the cycle duration to 30 and test cycles to 2. Use only one data file with size 256 MB and Maxsize 512 MB Fill out the other variables to your liking.
+- Click OK
 - From the Simulator menu, click Start
 - The test will run using your custom parameters.
+- If time permits, rerun with different parameters. Many cycles and large files can take a long time!
 
 ---
 
