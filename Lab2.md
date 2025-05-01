@@ -43,10 +43,7 @@ sqliosim.exe
 
 ### Step 5: Review the Results
 
-- Open the log file in Notepad:
-```powershell
-notepad C:\SQLIOSim.log
-```
+
 - Green = OK, Yellow = warnings (tolerable on VMs), Red = serious problems.
 
 ---
