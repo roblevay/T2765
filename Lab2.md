@@ -27,8 +27,8 @@ cd "C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Binn"
 
 - Launch `SQLIOSim.exe` from the `Binn` directory by executing sqliosim.exe
 
-    ```
-
+```
+sqliosim.exe
 ---
 
 ### Step 4: Run the Simulation
