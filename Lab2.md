@@ -192,7 +192,7 @@ Creates a 1 GB file (1,073,741,824 bytes).
 ## Step 2 – Run DiskSpd
 
 ```cmd
-diskspd -b64K -d30 -o4 -t4 -w100 -s -W0 -L C:\test\writetest.dat
+diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\test\writetest.dat
 ```
 
 ### Flag explanation:
