@@ -65,6 +65,9 @@ Test read performance with 4 KB block size, 100% random reads, 8 threads, for 60
 
 ## Step 1 – Create a test file
 
+
+- Open a terminal with **Administrator rights** (right-click CMD or PowerShell > *Run as administrator*).
+- 
 ```cmd
 fsutil file createnew C:\test\testfile.dat 1073741824
 ```
