@@ -33,7 +33,9 @@ sqliosim.exe
 
 ### Step 4: Run the Simulation
 
-- Click **Start Simulation**.
+- Set the cycle duration to 30 and test cycles to 4. Fill out the other variables to your liking.
+- Clik OK
+- From the Simulator menu, click Start
 - The test will run using your custom parameters.
 
 ---
