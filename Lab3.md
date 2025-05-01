@@ -13,7 +13,8 @@ Open SQL Server Management Studio and run the following script:
 ```sql
 CREATE DATABASE OldDb;
 GO
-USE OldDb;
+USE OldDb
+GO
 
 CREATE TABLE Test (
     ID INT PRIMARY KEY,
