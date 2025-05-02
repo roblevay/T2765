@@ -4,10 +4,10 @@
 ## 🎯 Objective
 
 1. Create a folder `C:\Dest` for storing restored databases.
-2. Back up the `AdventureWorks` database to `C:\sqlbackups`.
-3. Restore the backup with a new name `AWCopyFromBackup` into `C:\Dest`.
+2. Back up the `AdventureWorksDW` database to `C:\sqlbackups`.
+3. Restore the backup with a new name `AWDWCopyFromBackup` into `C:\Dest`.
 4. Export `AdventureWorks` to a BACPAC file.
-5. Import the BACPAC as a new database `AwCopyFromBacPac` into `C:\Dest`.
+5. Import the BACPAC as a new database `AwDWCopyFromBacPac` into `C:\Dest`.
 
 ---
 
@@ -32,7 +32,7 @@ New-Item -ItemType Directory -Path "C:\Dest"
 In SQL Server Management Studio (SSMS):
 
 ```sql
-BACKUP DATABASE AdventureWorks
+BACKUP DATABASE AdventureWorksDW
 TO DISK = 'C:\sqlbackups\AdventureWorks.bak'
 WITH FORMAT, INIT, COMPRESSION;
 ```
@@ -46,17 +46,17 @@ WITH FORMAT, INIT, COMPRESSION;
 
 ```sql
 RESTORE DATABASE AWCopyFromBackup
-FROM DISK = 'C:\sqlbackups\AdventureWorks.bak'
+FROM DISK = 'C:\sqlbackups\AdventureWorksDW.bak'
 WITH 
-    MOVE 'AdventureWorks_Data' TO 'C:\Dest\AWCopyFromBackup.mdf',
-    MOVE 'AdventureWorks_Log' TO 'C:\Dest\AWCopyFromBackup.ldf',
+    MOVE 'AdventureWorksDW_Data' TO 'C:\Dest\AWDWCopyFromBackup.mdf',
+    MOVE 'AdventureWorksDW_Log' TO 'C:\Dest\AWDWCopyFromBackup.ldf',
     REPLACE;
 ```
 
-> ℹ️ Replace `'AdventureWorks_Data'` and `'AdventureWorks_Log'` with the logical file names in your backup if different.
+> ℹ️ Replace `'AdventureWorksDW_Data'` and `'AdventureWorksDW_Log'` with the logical file names in your backup if different.
 > You can get them using:
 ```sql
-RESTORE FILELISTONLY FROM DISK = 'C:\sqlbackups\AdventureWorks.bak';
+RESTORE FILELISTONLY FROM DISK = 'C:\sqlbackups\AdventureWorksDW.bak';
 ```
 
 # 🧪 2. SQL Server – Restore from BACPAC  (Step-by-Step)
@@ -64,28 +64,28 @@ RESTORE FILELISTONLY FROM DISK = 'C:\sqlbackups\AdventureWorks.bak';
 
 ## 📦 Step 1 – Export AdventureWorks to BACPAC
 
-1. In SSMS, right-click the `AdventureWorks` database.
+1. In SSMS, right-click the `AdventureWorksDW` database.
 2. Choose **Tasks > Export Data-tier Application**.
 3. Select **Export to a BACPAC file**.
-4. Save it to `C:\Dest\AdventureWorks.bacpac`.
+4. Save it to `C:\Dest\AdventureWorksDW.bacpac`.
 
 ---
 
 ## 📥 Step 2 – Import the BACPAC to a New Database
 
 1. In SSMS, right-click **Databases** > **Import Data-tier Application**.
-2. Choose the file `C:\Dest\AdventureWorks.bacpac`.
-3. Name the new database: `AwCopyFromBacPac`.
-4. Set the destination data file path to `C:\Dest`.
+2. Choose the file `C:\Dest\AdventureWorksDW.bacpac`.
+3. Name the new database: `AwDWCopyFromBacPac`.
+4. Set the destination Data file path and Log file path to `C:\Dest`.
 5. Finish the wizard.
 
 ---
 
 ## ✅ Summary
 
-You now have two copies of `AdventureWorks`:
-- `AWCopyFromBackup` restored from a `.bak` file
-- `AwCopyFromBacPac` imported from a `.bacpac` file
+You now have two copies of `AdventureWorksDW`:
+- `AWDWCopyFromBackup` restored from a `.bak` file
+- `AwDWCopyFromBacPac` imported from a `.bacpac` file
 
 This shows two different ways to move or duplicate databases in SQL Server.
 
