@@ -22,8 +22,9 @@ GO
 
 ## 📈 Step 2: Insert data and create an index
 
--- Create a non-clustered index
+
 ```sql
+-- Create a non-clustered index
 CREATE NONCLUSTERED INDEX IX_Customers_City ON Customers(City);
 GO
 ```
