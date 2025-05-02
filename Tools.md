@@ -82,12 +82,12 @@ EXEC sp_Blitz;
 
 ### 🔽 Download
 Go to:  
-[https://karaszi.com/spdbinfo-database-space-usage-information](https://karaszi.com/spdbinfo-database-space-usage-information)
+[https://karaszi.com/spdbinfo-database-space-usage-information](https://karaszi.com/spdbinfo-database-space-usage-information) (open in a new window)
 
-Download and open the latest version of `sp_DBInfo.sql`.
+Click sp_dbinfo.sql 
 
 ### 📦 Install
-1. Open the `sp_DBInfo.sql` script in SSMS.
+1. Copy the script and paste it in SSMS
 2. Run it in the database where you want the procedure (commonly `master`).
 
 ### ▶️ Usage
