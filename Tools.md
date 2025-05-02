@@ -15,7 +15,7 @@ Learn how to download, install, and run three powerful diagnostic tools for SQL 
 Go to:  
 [https://glennsqlperformance.com/resources/](https://glennsqlperformance.com/resources/)
 
-Download the latest script matching your SQL Server version (e.g., SQL Server 2019 Diagnostic Information Queries).
+Download the latest script matching your SQL Server version (e.g., SQL Server 2022 Diagnostic Information Queries).
 
 ### ▶️ Usage
 1. Open the `.sql` file in SSMS.
