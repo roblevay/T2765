@@ -59,7 +59,7 @@ INSERT INTO TestData VALUES (1, 'Gamma'), (2, 'Delta');
 8. Set destination file paths if needed → click **Next**.
 9. In Configure the Package → click **Next**.
 10. Schedule the package to run immediately and click **Next**
-11. Click 
+11. Click **Finish** The database will be copied
 
 ---
 
