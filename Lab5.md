@@ -120,6 +120,9 @@ You've now learned how to:
 - Update statistics (per table and entire DB)
 
 
+
+
+
 # 🛠️ Exercise 2: SQL Server Maintenance Plans – Step-by-Step Exercise
 
 ## 🎯 Objective
@@ -262,6 +265,11 @@ EXEC dbo.DatabaseBackup
 You can schedule this using a SQL Agent job that runs nightly.
 
 ---
+
+
+
+
+
 
 ## 🔧 Step 3 – Index Maintenance
 
