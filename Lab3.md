@@ -1,24 +1,37 @@
 
-# 🔧 SQL Server – Move Database Using Detach and Attach
+# 🧪 SQL Server Copy Database Wizard – Using Detach and Attach Method
 
 ## 🎯 Objective
 
-Manually move a database from server `North` to server `North\A` using the **Detach and Attach** method.
+Use the **Copy Database Wizard** to move a database from server `North` to server `North\A` using the **Detach and Attach** method instead of SMO.
 
 ---
 
 ## 🧩 Prerequisites
 
-- You must have file access on both `North` and `North\A`.
-- You need sysadmin privileges on both SQL Server instances.
-- SQL Server Agent not required for this method.
+- You need sysadmin rights on both `North` and `North\A`.
+- SQL Server Agent must be **running** on both servers.
+- The database to be copied must be **offline-able** during the operation.
 
 ---
 
-## 🛠️ Step 1 – Create a Test Database on `North`
+## 🔐 Step 1 – Set SQL Server Agent Credentials on `North\A`
 
-1. Connect to `North` using SSMS.
-2. Run the following SQL:
+1. Open **SQL Server Configuration Manager** on `North\A`.
+2. Go to **SQL Server Services**.
+3. Right-click **SQL Server Agent (NORTH\A)** > **Properties**.
+4. In the **Log On** tab:
+   - Select **This account**
+   - Enter:
+     - **User**: `Student`
+     - **Password**: `myS3cret`
+5. Click **OK** and restart the SQL Server Agent service.
+
+---
+
+## 🛠️ Step 2 – Create a Sample Database on `North`
+
+Connect to `North` and run:
 
 ```sql
 CREATE DATABASE MoveDb;
@@ -34,62 +47,40 @@ INSERT INTO TestData VALUES (1, 'Gamma'), (2, 'Delta');
 
 ---
 
-## ⛔ Step 2 – Detach the Database from `North`
+## 🧙 Step 3 – Use the Copy Database Wizard (Detach and Attach)
 
-1. In SSMS, right-click the `MoveDb` database > **Tasks** > **Detach**.
-2. In the dialog:
-   - Check the box to drop connections.
-   - Click **OK** to detach.
-3. Locate the `.mdf` and `.ldf` files (usually in `C:\Program Files\Microsoft SQL Server\...\Data\`).
-
----
-
-## 📁 Step 3 – Copy Database Files to `North\A`
-
-1. Manually copy the `.mdf` and `.ldf` files to the `Data` folder on `North\A`:
-   - e.g. `C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\`
-
-Use a shared folder, USB drive, or direct file transfer depending on your setup.
-
----
-
-## 🔗 Step 4 – Attach the Database on `North\A`
-
-1. Connect to `North\A` using SSMS.
-2. Right-click **Databases** > **Attach**.
-3. Click **Add** and select the copied `.mdf` file.
-4. Confirm both `.mdf` and `.ldf` are listed.
-5. Click **OK** to attach.
+1. In SSMS, connect to `North`.
+2. Right-click the server > **Tasks** > **Copy Database**.
+3. Click **Next** on the welcome screen.
+4. Choose **Use Detach and Attach method** → click **Next**.
+5. Enter destination server: `North\A`.
+6. Authenticate to both servers → click **Next**.
+7. Select the database: `MoveDb` → click **Next**.
+8. Choose:
+   - **Detach source database**
+   - **Attach to destination server**
+   - (Optionally, delete from source after copy)
+9. Set destination file paths if needed → click **Next**.
+10. Choose to execute immediately or schedule → click **Next**.
+11. Review settings and click **Finish**.
 
 ---
 
-## ✅ Step 5 – Verify the Migration
+## ✅ Step 4 – Confirm the Migration
 
-1. In `North\A`, open the new `MoveDb` database.
-2. Run:
+On `North\A`, verify:
 
 ```sql
 SELECT * FROM MoveDb.dbo.TestData;
 ```
 
-You should see the rows `Gamma` and `Delta`.
-
----
-
-## 🧼 Optional Cleanup
-
-To remove the test database from both servers:
-
-```sql
-DROP DATABASE MoveDb;
-```
-
-Delete the copied files manually from disk if no longer needed.
+Ensure you see the copied data (`Gamma`, `Delta`).
 
 ---
 
 ## 📝 Notes
 
-- The source database is **offline** after detach – clients cannot connect until it is re-attached.
-- Moving the files instead of copying them makes this a **one-way operation** unless you have a backup.
-- Always ensure you have full access rights to the data files.
+- The **Detach and Attach** method takes the source database offline during the transfer.
+- It is faster than SMO for large databases but **requires downtime**.
+- Make sure file paths are valid and accessible between the two servers.
+
