@@ -119,7 +119,9 @@ You've now learned how to:
 - Reorganize or rebuild indexes
 - Update statistics (per table and entire DB)
 
+&nbsp;
 
+&nbsp;
 
 
 
