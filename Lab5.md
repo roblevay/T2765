@@ -38,7 +38,7 @@ SELECT
 FROM sys.all_objects a
 CROSS JOIN sys.all_objects b
 WHERE a.object_id < 100 AND b.object_id < 100;  -- approx 10,000 rows
-
+```
 
 
 ---
