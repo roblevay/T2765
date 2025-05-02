@@ -150,7 +150,7 @@ EXEC dbo.IndexOptimize
   @Databases = 'USER_DATABASES',
   @FragmentationLow = NULL,
   @FragmentationMedium = 'INDEX_REORGANIZE',
-  @FragmentationHigh = 'INDEX_REBUILD',
+  @FragmentationHigh = 'INDEX_REBUILD_ONLINE',
   @FragmentationLevel1 = 10,
   @FragmentationLevel2 = 30,
   @UpdateStatistics = 'ALL';
