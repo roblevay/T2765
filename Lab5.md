@@ -22,6 +22,11 @@ GO
 
 ## 📈 Step 2: Insert data and create an index
 
+-- Create a non-clustered index
+CREATE NONCLUSTERED INDEX IX_Customers_City ON Customers(City);
+GO
+```
+
 ```sql
 -- Insert 10,000 rows
 INSERT INTO Customers (FirstName, LastName, City)
@@ -33,10 +38,7 @@ FROM sys.all_objects a
 CROSS JOIN sys.all_objects b
 WHERE a.object_id < 100 AND b.object_id < 100;  -- approx 10,000 rows
 
--- Create a non-clustered index
-CREATE NONCLUSTERED INDEX IX_Customers_City ON Customers(City);
-GO
-```
+
 
 ---
 
