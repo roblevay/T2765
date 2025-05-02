@@ -53,13 +53,13 @@ Download the latest script matching your SQL Server version (e.g., SQL Server 20
 
 ### 🔽 Download
 Visit:  
-[https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit](https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit)
+[https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit](https://github.com/BrentOzarULTD/SQL-Server-First-Responder-Kit) (open in a new window)
 
-Download the ZIP or clone the repo.
+Click on sp_blitz.sql. The file will open
 
 ### 📦 Install
-1. Extract the ZIP.
-2. Open  `sp_Blitz.sql` in SSMS.
+1. Click Copy raw file
+2. Paste it in SSMS.
 3. Run it in the `master` database.
 
 ### ▶️ Usage
