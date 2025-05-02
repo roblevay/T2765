@@ -1,121 +1,124 @@
 # Exercise 1: SQL Server Index Fragmentation & Statistics Exercise
 
-## 🏁 Step 1: Create a test database and table
+## 🏁 Step 1: Create test database and table
 
 ```sql
-CREATE DATABASE FragmentationDemo;
+CREATE DATABASE FragDemo;
 GO
 
-USE FragmentationDemo;
+USE FragDemo;
 GO
 
-CREATE TABLE Customers (
-    CustomerID INT IDENTITY PRIMARY KEY,
-    FirstName NVARCHAR(100),
-    LastName NVARCHAR(100),
-    City NVARCHAR(100)
+DROP TABLE IF EXISTS Test;
+GO
+
+CREATE TABLE Test (
+    ID INT IDENTITY PRIMARY KEY,
+    Value CHAR(800)  -- Large rows to use up more space per page
 );
 GO
 ```
 
 ---
 
-## 📈 Step 2: Insert data and create an index
-
-
-```sql
--- Create a non-clustered index
-CREATE NONCLUSTERED INDEX IX_Customers_City ON Customers(City);
-GO
-```
+## 🧱 Step 2: Create index with low fill factor
 
 ```sql
--- Insert 10,000 rows
-INSERT INTO Customers (FirstName, LastName, City)
-SELECT
-    LEFT(NEWID(), 8),
-    LEFT(NEWID(), 8),
-    CASE WHEN ABS(CHECKSUM(NEWID())) % 2 = 0 THEN 'Stockholm' ELSE 'Gothenburg' END
-FROM sys.all_objects a
-CROSS JOIN sys.all_objects b
-WHERE a.object_id < 100 AND b.object_id < 100;  -- approx 10,000 rows
-```
-
-
----
-
-## 🌀 Step 3: Fragment the index
-
-```sql
--- Delete about half the rows randomly
-DELETE FROM Customers
-WHERE CustomerID % 2 = 0;
-
--- Insert more rows to cause page splits
-INSERT INTO Customers (FirstName, LastName, City)
-SELECT
-    LEFT(NEWID(), 8),
-    LEFT(NEWID(), 8),
-    'Malmö'
-FROM sys.all_objects
-WHERE object_id < 100;
+CREATE NONCLUSTERED INDEX IX_Test_Value 
+ON Test(Value)
+WITH (FILLFACTOR = 70);
 GO
 ```
 
 ---
 
-## 🔍 Step 4: Check fragmentation
+## 📥 Step 3: Insert rows to fill pages
+
+```sql
+INSERT INTO Test (Value)
+VALUES (REPLICATE('A', 800));
+GO 2000
+```
+
+---
+
+## 🗑️ Step 4: Delete a portion of the data
+
+```sql
+DELETE FROM Test WHERE ID % 3 = 0;
+```
+
+---
+
+## 🔁 Step 5: Insert more rows to cause fragmentation
+
+```sql
+INSERT INTO Test (Value)
+VALUES (REPLICATE('B', 800));
+GO 1000
+```
+
+---
+
+## 🔍 Step 6: Check fragmentation
 
 ```sql
 SELECT 
-    dbschemas.name AS SchemaName,
-    dbtables.name AS TableName,
-    dbindexes.name AS IndexName,
-    indexstats.avg_fragmentation_in_percent
-FROM sys.dm_db_index_physical_stats (DB_ID('FragmentationDemo'), NULL, NULL, NULL, 'SAMPLED') AS indexstats
-JOIN sys.tables dbtables ON dbtables.object_id = indexstats.object_id
-JOIN sys.schemas dbschemas ON dbtables.schema_id = dbschemas.schema_id
-JOIN sys.indexes AS dbindexes ON dbindexes.object_id = indexstats.object_id AND indexstats.index_id = dbindexes.index_id
-WHERE indexstats.index_id > 0;
+    index_type_desc,
+    avg_fragmentation_in_percent,
+    fragment_count,
+    avg_page_space_used_in_percent
+FROM sys.dm_db_index_physical_stats (DB_ID(), OBJECT_ID('Test'), NULL, NULL, 'DETAILED');
 ```
 
 ---
 
-## 🛠️ Step 5: Update statistics
+## 🧹 Step 7: Reorganize and Rebuild
 
-### Option A – Use system stored procedure
+### Reorganize (lighter operation)
+
+```sql
+ALTER INDEX IX_Test_Value ON Test REORGANIZE;
+```
+
+### Rebuild (heavier, but more effective)
+
+```sql
+ALTER INDEX IX_Test_Value ON Test REBUILD;
+```
+
+---
+
+## 📊 Step 8: Update statistics
+
+### A. Update statistics for a specific table
+
+```sql
+UPDATE STATISTICS Test;
+```
+
+### B. Update a specific index/statistics object
+
+```sql
+UPDATE STATISTICS Test IX_Test_Value;
+```
+
+### C. Update all statistics in the database
+
 ```sql
 EXEC sp_updatestats;
-```
-
-### Option B – Manually update a specific table or index
-```sql
-UPDATE STATISTICS Customers;
--- or
-UPDATE STATISTICS Customers IX_Customers_City;
-```
-
----
-
-## 🧹 Bonus: Reorganize or Rebuild index
-
-```sql
--- Reorganize (lightweight)
-ALTER INDEX IX_Customers_City ON Customers REORGANIZE;
-
--- Rebuild (heavier)
-ALTER INDEX IX_Customers_City ON Customers REBUILD;
 ```
 
 ---
 
 ## ✅ Done!
 
-You now know how to:
-- Create fragmentation
-- Detect it with DMVs
-- Update statistics
-- Rebuild or reorganize indexes
+You've now learned how to:
+- Create a table and index
+- Cause and detect fragmentation
+- Reorganize or rebuild indexes
+- Update statistics (per table and entire DB)
+
 
 # 🛠️ Exercise 2: SQL Server Maintenance Plans – Step-by-Step Exercise
 
