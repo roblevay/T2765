@@ -1,92 +1,80 @@
 
-# 🧪 SQL Server Upgrade Simulation (No Old Instance Needed)
+# 🧪 SQL Server Copy Database Wizard – Offline Transfer
 
-## 📝 Objective
-Simulate a SQL Server upgrade using the Data Migration Assistant (DMA) — without needing an older SQL Server instance.
+## 🎯 Objective
+
+Copy a database from server `North` to `North\A` using the **Copy Database Wizard**, selecting the option to **take the source database offline during the transfer**.
 
 ---
 
-## Step 1 – Create a Test Database
+## 🔐 Step 1 – Update SQL Server Agent Account on `North\A`
 
-Open SQL Server Management Studio and run the following script:
+1. Open **SQL Server Configuration Manager** on `North\A`.
+2. Go to **SQL Server Services**.
+3. Right-click on **SQL Server Agent (NORTH\A)** > **Properties**.
+4. In the **Log On** tab:
+   - Choose **This account**
+   - Enter:
+     - **User**: `Student`
+     - **Password**: `myS3cret`
+5. Click **OK**, then restart the SQL Server Agent.
+
+---
+
+## 🛠️ Step 2 – Create a Database on `North`
+
+1. Connect to `North` using SSMS.
+2. Run:
 
 ```sql
-DROP DATABASE IF EXISTS OldDb
-CREATE DATABASE OldDb;
-GO
-USE OldDb
+CREATE DATABASE MoveDb;
 GO
 
-CREATE TABLE Test (
+USE MoveDb;
+CREATE TABLE TestData (
     ID INT PRIMARY KEY,
-    Msg NVARCHAR(100)
+    Name NVARCHAR(100)
 );
-
-INSERT INTO Test VALUES (1, 'Hello'), (2, 'World');
-GO
-CREATE PROCEDURE LegacyProc AS
-BEGIN
-    RAISERROR('This is deprecated', 10, 1);  -- Intentionally deprecated syntax
-END;
-GO
-USE master
-GO
+INSERT INTO TestData VALUES (1, 'Alpha'), (2, 'Beta');
 ```
 
 ---
 
-## Step 2 – Set a Legacy Compatibility Level
+## 🧙 Step 3 – Use the Copy Database Wizard with Offline Option
 
-Still in SSMS, simulate an old environment by downgrading the compatibility level:
+1. In SSMS, connect to `North`.
+2. Right-click the server name > **Tasks** > **Copy Database**.
+3. Click **Next** on the welcome page.
+4. Choose **Use SQL Management Object (SMO) method** → click **Next**.
+5. Enter destination server: `North\A`
+6. Authenticate as needed → click **Next**.
+7. Select `MoveDb` → click **Next**.
+8. Choose **Take source database offline** during transfer → click **Next**.
+9. Adjust file paths if needed → click **Next**.
+10. Choose to run immediately or schedule → click **Next**.
+11. Confirm settings and click **Finish**.
+
+---
+
+## ✅ Step 4 – Verify on `North\A`
+
+1. Connect to `North\A`.
+2. Expand **Databases** and confirm `MoveDb` exists.
+3. Check the `TestData` table content.
+
+---
+
+## 🧼 Optional Cleanup
 
 ```sql
-ALTER DATABASE OldDb SET COMPATIBILITY_LEVEL = 110;  -- SQL Server 2012
+DROP DATABASE MoveDb;  -- Run on both servers if needed
 ```
 
 ---
 
-## Step 3 – Run Data Migration Assistant (DMA)
+## 📝 Summary
 
-1. Launch DMA.
-2. Click **"+ New"**, choose **Assessment**.
-3. Connect to your local SQL Server instance.
-4. Select **"OldDb"**.
-5. Choose **Target: SQL Server 2022**.
-6. Run the assessment.
+This version of the wizard **takes the source database offline** during the transfer, which:
 
----
-
-## Step 4 – Analyze the Results
-
-- What issues does DMA report?
-- Are there **breaking changes** or **deprecated features**?
-- Would anything block a real upgrade?
-
-Take screenshots or notes if used in a classroom setting.
-
----
-
-## Step 5 – (Optional) Upgrade Compatibility Level
-
-To simulate post-upgrade behavior:
-
-```sql
-ALTER DATABASE OldDb SET COMPATIBILITY_LEVEL = 160;  -- SQL Server 2022
-```
-
-You may also enable **Query Store** to track performance differences (optional):
-
-```sql
-ALTER DATABASE OldDb SET QUERY_STORE = ON;
-```
-
----
-
-## ✅ Summary
-
-This exercise gives hands-on experience with:
-- Using DMA to assess upgrade readiness
-- Simulating older database behavior
-- Identifying and fixing upgrade blockers
-
-All without requiring an actual older SQL Server instance.
+- Minimizes data inconsistencies
+- Requires downtime during the operation
