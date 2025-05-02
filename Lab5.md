@@ -34,7 +34,7 @@ Create three separate maintenance plans in SQL Server using SQL Server Managemen
    - Enable backup compression if supported
    - Optional: Create a sub-directory for each database
 6. Click **OK**.
-7. Right-click on the calendar icon (subplan schedule) and choose **New Schedule**:
+7. Click on the calendar icon (subplan schedule) and choose **New Schedule**:
    - Name: `NightlyBackup`
    - Frequency: Daily
    - Time: e.g. 2:00 AM
