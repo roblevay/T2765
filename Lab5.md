@@ -25,7 +25,7 @@ Create three separate maintenance plans in SQL Server using SQL Server Managemen
 
 1. Open **SSMS** and connect to your SQL Server instance.
 2. Expand **Management** > Right-click **Maintenance Plans** > Choose **New Maintenance Plan**.
-3. Name the plan: `UserDatabaseBackup`.
+3. Name the plan: `UserDatabaseBackup`. Wait for some time for the toolbox Maintenance Plan Tasks to appear.
 4. In the toolbox (on the left), drag **Back Up Database Task** into the designer.
 5. Double-click the task to configure:
    - **Backup type**: Full
