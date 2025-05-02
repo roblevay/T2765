@@ -110,7 +110,7 @@ Set up Ola Hallengren’s widely used maintenance scripts to:
 
 ## 📥 Step 1 – Download the Scripts
 
-1. Go to the official website:  
+1. Go to the official website (right-click to open in new tab):  
    👉 <a href="https://ola.hallengren.com" target="_blank">https://ola.hallengren.com</a>
 
 2. Click **Download** under “MaintenanceSolution.sql”.
