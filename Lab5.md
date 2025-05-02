@@ -1,5 +1,5 @@
 
-# 🛠️ SQL Server Maintenance Plans – Step-by-Step Exercise
+# 🛠️ Exercise 1: SQL Server Maintenance Plans – Step-by-Step Exercise
 
 ## 🎯 Objective
 
@@ -93,4 +93,95 @@ This set of exercises helps automate key SQL Server maintenance:
 All can be created without writing T-SQL using the Maintenance Plan Wizard or Designer in SSMS.
 
 If time permits, verify that the Sql Server Agent service is running and execute each of the plans by right-clicking and verifying that they run correctly.
+
+
+
+# 🔧 Exercise 2: Using Ola Hallengren’s SQL Server Maintenance Solution
+
+## 🎯 Objective
+
+Set up Ola Hallengren’s widely used maintenance scripts to:
+
+- Back up all user databases
+- Perform index maintenance (rebuild if > 30% fragmentation, reorganize if 10–30%)
+- Update statistics
+
+---
+
+## 📥 Step 1 – Download the Scripts
+
+1. Go to the official website:  
+   👉 https://ola.hallengren.com
+
+2. Click **Download** under “MaintenanceSolution.sql”.
+
+3. Open **SQL Server Management Studio (SSMS)** and run the downloaded script against the **master** database.
+
+   This will create:
+   - Stored procedures (e.g., `dbo.DatabaseBackup`, `dbo.IndexOptimize`)
+   - Support tables (e.g., `dbo.CommandLog`)
+   - SQL Agent job templates (optional)
+
+---
+
+## 🧪 Step 2 – Run Backup for All User Databases
+
+To back up all user databases to a folder (e.g., `C:\SQLBackups`):
+
+```sql
+EXEC dbo.DatabaseBackup
+  @Databases = 'USER_DATABASES',
+  @Directory = 'C:\SQLBackups',
+  @BackupType = 'FULL',
+  @Compress = 'Y',
+  @CheckSum = 'Y';
+```
+
+You can schedule this using a SQL Agent job that runs nightly.
+
+---
+
+## 🔧 Step 3 – Index Maintenance
+
+To rebuild/reorganize indexes based on fragmentation:
+
+```sql
+EXEC dbo.IndexOptimize
+  @Databases = 'USER_DATABASES',
+  @FragmentationLow = NULL,
+  @FragmentationMedium = 'INDEX_REORGANIZE',
+  @FragmentationHigh = 'INDEX_REBUILD',
+  @FragmentationLevel1 = 10,
+  @FragmentationLevel2 = 30,
+  @UpdateStatistics = 'ALL';
+```
+
+- Reorganize if fragmentation is **10–30%**
+- Rebuild if **>30%**
+- Also updates statistics for all indexes
+
+Schedule this weekly or as needed using SQL Agent.
+
+---
+
+## 🗂️ Optional: Command Log Table
+
+You can review what actions were taken by querying:
+
+```sql
+SELECT * FROM dbo.CommandLog ORDER BY StartTime DESC;
+```
+
+---
+
+## ✅ Summary
+
+With minimal setup, Ola Hallengren’s solution gives you:
+
+- Reliable backups with checksums and compression
+- Smart index and stats maintenance based on actual fragmentation
+- Logging of all maintenance actions
+
+Perfect for both small environments and enterprise-scale SQL Servers.
+
 
