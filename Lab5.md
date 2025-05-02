@@ -154,7 +154,7 @@ EXEC dbo.IndexOptimize
   @FragmentationHigh = 'INDEX_REBUILD_ONLINE',
   @FragmentationLevel1 = 10,
   @FragmentationLevel2 = 30,
-  @UpdateStatistics = 'ALL'
+  @UpdateStatistics = 'ALL',
   @LogToTable='Y';
 ```
 
