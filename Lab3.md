@@ -48,7 +48,7 @@ INSERT INTO TestData VALUES (1, 'Alpha'), (2, 'Beta');
 4. Choose **Use the detach and attach method** → click **Next**.
 5. Enter destination server: `North\A`
 6. Authenticate as needed → click **Next**.
-7. Select `MoveDb` → click **Next**.
+7. Select to copy `MoveDb` → click **Next**.
 8. Choose **Take source database offline** during transfer → click **Next**.
 9. Adjust file paths if needed → click **Next**.
 10. Choose to run immediately or schedule → click **Next**.
