@@ -33,7 +33,7 @@ In SQL Server Management Studio (SSMS):
 
 ```sql
 BACKUP DATABASE AdventureWorksDW
-TO DISK = 'C:\sqlbackups\AdventureWorks.bak'
+TO DISK = 'C:\sqlbackups\AdventureWorksDW.bak'
 WITH FORMAT, INIT, COMPRESSION;
 ```
 
