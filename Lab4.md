@@ -45,7 +45,7 @@ WITH FORMAT, INIT, COMPRESSION;
 ## ♻️ Step 3 – Restore the Database with a New Name
 
 ```sql
-RESTORE DATABASE AWCopyFromBackup
+RESTORE DATABASE AWDWCopyFromBackup
 FROM DISK = 'C:\sqlbackups\AdventureWorksDW.bak'
 WITH 
     MOVE 'AdventureWorksDW_Data' TO 'C:\Dest\AWDWCopyFromBackup.mdf',
