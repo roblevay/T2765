@@ -68,7 +68,7 @@ SELECT
     avg_fragmentation_in_percent,
     fragment_count,
     avg_page_space_used_in_percent
-FROM sys.dm_db_index_physical_stats (DB_ID(), OBJECT_ID('Test'), NULL, NULL, 'DETAILED');
+FROM sys.dm_db_index_physical_stats (DB_ID(), OBJECT_ID('Test'), NULL, NULL, NULL);
 ```
 
 ---
