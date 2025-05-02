@@ -34,8 +34,9 @@ Create three separate maintenance plans in SQL Server using SQL Server Managemen
    - Enable backup compression if supported
    - Optional: Create a sub-directory for each database
 6. Click **OK**.
-7. Click on the calendar icon (subplan schedule) and choose **New Schedule**:
+7. Click on the Add Subplan icon 
    - Name: `NightlyBackup`
+   - Add a Schedule
    - Frequency: Daily
    - Time: e.g. 2:00 AM
 8. Save the plan (Ctrl+S or File > Save).
@@ -53,7 +54,7 @@ Create three separate maintenance plans in SQL Server using SQL Server Managemen
    - Tables: All tables
 4. Add **Update Statistics Task**:
    - Databases: All user databases
-   - Scan type: Full scan (or sample for large DBs)
+   - Scan type: Full scan 
 5. Schedule the plan:
    - Frequency: Weekly
    - Time: e.g. Sunday at 3:00 AM
@@ -90,4 +91,6 @@ This set of exercises helps automate key SQL Server maintenance:
 - **Plan 3** prevents disk space and history buildup.
 
 All can be created without writing T-SQL using the Maintenance Plan Wizard or Designer in SSMS.
+
+If time permits, verify that the Sql Server Agent service is running and execute each of the plans by right-clicking and verifying that they run correctly.
 
