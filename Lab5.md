@@ -134,7 +134,8 @@ EXEC dbo.DatabaseBackup
   @Directory = 'C:\SQLBackups',
   @BackupType = 'FULL',
   @Compress = 'Y',
-  @CheckSum = 'Y';
+  @CheckSum = 'Y',
+  @LogToTable='Y';
 ```
 
 You can schedule this using a SQL Agent job that runs nightly.
@@ -153,7 +154,8 @@ EXEC dbo.IndexOptimize
   @FragmentationHigh = 'INDEX_REBUILD_ONLINE',
   @FragmentationLevel1 = 10,
   @FragmentationLevel2 = 30,
-  @UpdateStatistics = 'ALL';
+  @UpdateStatistics = 'ALL'
+  @LogToTable='Y';
 ```
 
 - Reorganize if fragmentation is **10–30%**
