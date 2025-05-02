@@ -1,5 +1,5 @@
 
-# 🧪 SQL Server – Restore from Backup and BACPAC (Step-by-Step)
+# 🧪 1. SQL Server – Restore from Backup  (Step-by-Step)
 
 ## 🎯 Objective
 
@@ -59,9 +59,10 @@ WITH
 RESTORE FILELISTONLY FROM DISK = 'C:\sqlbackups\AdventureWorks.bak';
 ```
 
+# 🧪 2. SQL Server – Restore from BACPAC  (Step-by-Step)
 ---
 
-## 📦 Step 4 – Export AdventureWorks to BACPAC
+## 📦 Step 1 – Export AdventureWorks to BACPAC
 
 1. In SSMS, right-click the `AdventureWorks` database.
 2. Choose **Tasks > Export Data-tier Application**.
@@ -70,7 +71,7 @@ RESTORE FILELISTONLY FROM DISK = 'C:\sqlbackups\AdventureWorks.bak';
 
 ---
 
-## 📥 Step 5 – Import the BACPAC to a New Database
+## 📥 Step 2 – Import the BACPAC to a New Database
 
 1. In SSMS, right-click **Databases** > **Import Data-tier Application**.
 2. Choose the file `C:\Dest\AdventureWorks.bacpac`.
