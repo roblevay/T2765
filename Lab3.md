@@ -45,7 +45,7 @@ INSERT INTO TestData VALUES (1, 'Alpha'), (2, 'Beta');
 1. In SSMS, connect to `North`.
 2. Right-click the server name > **Tasks** > **Copy Database**.
 3. Click **Next** on the welcome page.
-4. Choose **Use SQL Management Object (SMO) method** → click **Next**.
+4. Choose **Use the detach and attach method** → click **Next**.
 5. Enter destination server: `North\A`
 6. Authenticate as needed → click **Next**.
 7. Select `MoveDb` → click **Next**.
