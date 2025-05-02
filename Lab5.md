@@ -113,14 +113,14 @@ Set up Ola Hallengren’s widely used maintenance scripts to:
 1. Go to the official website (right-click to open in new tab):  
    👉 <a href="https://ola.hallengren.com" target="_blank">https://ola.hallengren.com</a>
 
-2. Click **Download** under “MaintenanceSolution.sql”.
+2. Click  “MaintenanceSolution.sql” under Getting Started
 
 3. Open **SQL Server Management Studio (SSMS)** and run the downloaded script against the **master** database.
 
    This will create:
    - Stored procedures (e.g., `dbo.DatabaseBackup`, `dbo.IndexOptimize`)
    - Support tables (e.g., `dbo.CommandLog`)
-   - SQL Agent job templates (optional)
+  
 
 ---
 
