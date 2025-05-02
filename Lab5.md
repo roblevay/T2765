@@ -220,6 +220,9 @@ All can be created without writing T-SQL using the Maintenance Plan Wizard or De
 
 If time permits, verify that the Sql Server Agent service is running and execute each of the plans by right-clicking and verifying that they run correctly.
 
+&nbsp;
+
+&nbsp;
 
 
 # 🔧 Exercise 3: Using Ola Hallengren’s SQL Server Maintenance Solution
