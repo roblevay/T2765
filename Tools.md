@@ -69,7 +69,7 @@ EXEC sp_Blitz;
 
 ### 🧾 Output Overview
 
-- **Priority**: Severity of issue (1 is critical)
+- **Priority**: Severity of issue (1 is critical up to 255 which is not critical at all)
 - **Finding**: The issue found (e.g. “Backups Not Performed Recently”)
 - **Database Name**: Which DB is affected (if applicable)
 - **Details**: Text explanation and a link to learn more
