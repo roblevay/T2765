@@ -59,7 +59,7 @@ Download the ZIP or clone the repo.
 
 ### 📦 Install
 1. Extract the ZIP.
-2. Open `Install-All-Scripts.sql` or just `sp_Blitz.sql` in SSMS.
+2. Open  `sp_Blitz.sql` in SSMS.
 3. Run it in the `master` database.
 
 ### ▶️ Usage
