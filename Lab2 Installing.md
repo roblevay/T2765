@@ -1,6 +1,6 @@
 # 🛠️ SQL Server Installation & Validation
 
-## Exercise 1. Before the Installation
+# Exercise 1. Before the Installation
 
 You will use the SQL Server installation program to view hardware and software requirements, use the configuration checker and also see what is already installed on the machine:
 
@@ -11,7 +11,7 @@ You will use the SQL Server installation program to view hardware and software r
 
 ---
 
-## Exercise 2. Install a Named Instance (Developer Edition)
+# Exercise 2. Install a Named Instance (Developer Edition)
 
 You will install a new instance of the database engine. We suggest that you install only the database engine, to keep it quick and simple.  
 (If there is something specific you want to explore during these days, feel free to include it.)
@@ -30,7 +30,7 @@ You can choose settings as you like, but for reference:
 
 ---
 
-## Exercise 3. Check the Installation
+# Exercise 3. Check the Installation
 
 - Verify that your instance is running – start it if needed.
 - Log in using SSMS or Azure Data Studio.
@@ -39,7 +39,7 @@ You can choose settings as you like, but for reference:
 
 ---
 
-# Exercise 1. SQLIOSIM Disk I/O Integrity Test Exercise
+# Exercise 4. SQLIOSIM Disk I/O Integrity Test Exercise
 
 ### Objective:
 Run the SQLIOSIM tool with a custom configuration to verify disk I/O integrity.
@@ -79,7 +79,7 @@ sqliosim.exe
 
 ---
 
-# Exercise 2. DiskSpd Basic Test – Read Performance
+# Exercise 5. DiskSpd Basic Test – Read Performance
 
 ## Goal
 Test read performance with 4 KB block size, 100% random reads, 8 threads, for 60 seconds.
