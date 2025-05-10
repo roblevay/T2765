@@ -4,7 +4,7 @@
 
 You will use the SQL Server installation program to view hardware and software requirements, use the configuration checker and also see what is already installed on the machine:
 
-- Run `setup.exe`. It is likely found on the `D:` or `F`drive (an attached ISO), or possibly in a folder named something like `C:\SqlInstall`.
+- Run `setup.exe`. It is likely found on the `D:` or `F: `drive (an attached ISO), or possibly in a folder named something like `C:\SqlInstall`.
 - Use the **Planning** page to view *Hardware and Software Requirements*.
 - Use the **Tools** page to run the *System Configuration Checker*.
 - Also on the Tools page, check what is installed using the *Installed SQL Server features discovery report*.
