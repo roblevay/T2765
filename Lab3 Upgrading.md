@@ -22,7 +22,9 @@ Learn two different methods to copy a database from one SQL Server instance (`No
 
 
 
-## 🧷 Method 1 – Manual Backup and Restore
+## 🧷 Method 1 – Manual Backup and Restore  
+
+If it not exists, create the folder C:\DbFiles
 
 ### 🔐 Step 1 – Create Login and User on the source server
 
