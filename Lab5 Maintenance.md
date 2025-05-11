@@ -65,6 +65,20 @@ Testa istället
 ```sql
 DBCC CHECKTABLE('Customers') WITH ALL_ERRORMSGS, NO_INFOMSGS;
 ```
+Detta ska ge resultat:
+
+För att testa att reparera utan dataförlust
+
+```tsql
+ALTER DATABASE CorruptTsql SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+DBCC CHECKDB(CorruptTsql,REPAIR_REBUILD)  WITH NO_INFOMSGS;
+```
+Fungerar nog inte så testa
+
+```tsql
+ALTER DATABASE CorruptTsql SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+DBCC CHECKDB(CorruptTsql,REPAIR_ALLOW_DATA_LOSS )  WITH NO_INFOMSGS;
+```
 
 ---
 
