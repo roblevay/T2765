@@ -83,7 +83,7 @@ You now feel that you want to raise the compatibility level for the database. Do
 
 ## Method 1 Answer suggestions
 
-### 🔐 Step 1 – Create Login and User on `North`
+### 🔐 Step 1 – Manual Backup and Restore 
 
 On `North`:
 
@@ -91,12 +91,12 @@ On `North`:
 CREATE LOGIN Liza WITH PASSWORD = 'myS3cret';
 GO
 USE AdventureWorks;
-CREATE USER Liza FOR LOGIN Liza;
+CREATE USER Liza;
 ```
 
 ---
 
-### 💾 Step 2 – Backup and Restore AdventureWorks
+### 💾 Step 2 – Create and restore a backup
 
 1. On `North`, back up the database:
 
@@ -124,7 +124,7 @@ EXEC sp_updatestats;
 
 ---
 
-### 🧩 Step 3 – Fix Orphaned User
+### 🧩 Step 3 – Manage an orphaned user
 
 On `North\A`:
 
@@ -143,7 +143,7 @@ If needed, recreate the login with the original SID using `sp_help_revlogin` fro
 
 ---
 
-### ⚙️ Step 4 – Raise Compatibility Level
+### ⚙️ Step 4 – Raise the Compatibility Level
 
 Check current level:
 
