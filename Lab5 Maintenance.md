@@ -1,3 +1,85 @@
+# 🛠️ Lab 5: Integrity Checks and Maintenance
+
+## Exercise 1 – Run DBCC CHECKDB
+
+### Instructions
+
+1. Restore the `CorruptTsql` database on the default instance using this command:
+
+```sql
+RESTORE DATABASE CorruptTsql
+FROM DISK = 'C:\DemoDatabases\Course_DemoDatabases\CorruptTsql.bak'
+WITH
+MOVE 'TSQL' TO 'C:\DbFiles\MsSqlServer\TSQL.mdf',
+MOVE 'TSQL_log' TO 'C:\DbFiles\MsSqlServer\TSQL_log.ldf';
+```
+
+2. Run `DBCC CHECKDB` on that database and determine if the problem can be repaired **without losing data**.
+3. If time permits, try to determine which table and index the corruption affects.
+4. Try selecting all rows from the corrupt table and observe the error message.
+5. Check if the corrupt pages are listed in the `msdb.dbo.suspect_pages` table.
+
+---
+
+### Answer Suggestion
+
+**Restore the database:**
+```sql
+RESTORE DATABASE CorruptTsql
+FROM DISK = 'C:\T2765_Labfiles\CorruptTsql.bak'
+WITH
+MOVE 'TSQL' TO 'C:\DbFiles\MSSQLSERVER\TSQL.mdf',
+MOVE 'TSQL_log' TO 'C:\DbFiles\MSSQLSERVER\TSQL_log.ldf';
+```
+
+**Run DBCC CHECKDB:**
+```sql
+DBCC CHECKDB(CorruptTsql);
+-- or
+DBCC CHECKDB(CorruptTsql) WITH NO_INFOMSGS;
+```
+
+**Identify the corrupt table using object_id:**
+```sql
+DECLARE @table_id int = 629577281;
+SELECT
+    OBJECT_SCHEMA_NAME(@table_id, DB_ID('CorruptTsql')),
+    OBJECT_NAME(@table_id, DB_ID('CorruptTsql'));
+```
+
+**Try selecting from the corrupt table:**
+```sql
+SELECT * FROM Production.Suppliers;
+```
+
+**Check suspect pages:**
+```sql
+SELECT * FROM msdb.dbo.suspect_pages;
+```
+
+---
+
+## Exercise 2 – Create Maintenance Routines
+
+### Instructions
+
+Create maintenance routines for the default instance.  
+Use either a **Maintenance Plan** or **Ola Hallengren’s maintenance procedures**.
+
+Customize and tweak the maintenance tasks to fit your environment and time constraints.
+
+---
+
+### Answer Suggestion
+
+There are no predefined answers for this task.  
+Use your best judgment based on the lab guide and what you consider relevant maintenance routines.
+
+---
+
+© Tibor Karaszi Konsulting and Cornerstone Group AB
+
+
 # Exercise 1: SQL Server Index Fragmentation & Statistics Exercise
 
 ## 🏁 Step 1: Create test database and table
