@@ -182,7 +182,4 @@ SET COMPATIBILITY_LEVEL = 150;
 * `sp_updatestats` is often used after restores, even if not technically required.
 * Raising compatibility level can affect performance and query behavior.
 
-```
-
-Vill du att jag lägger in det här som en riktig fil också (t.ex. ladda nerbar)?
-```
+---
