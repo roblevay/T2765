@@ -111,8 +111,7 @@ TO DISK = 'C:\DbFiles\AdventureWorks.bak';
 RESTORE DATABASE AdventureWorks
 FROM DISK = 'C:\DbFiles\AdventureWorks.bak'
 WITH MOVE 'AdventureWorks_Data' TO 'C:\DbFiles\AdventureWorks_A_Data.mdf',
-     MOVE 'AdventureWorks_Log' TO 'C:\DbFiles\AdventureWorks_A_Log.ldf',
-     REPLACE;
+     MOVE 'AdventureWorks_Log' TO 'C:\DbFiles\AdventureWorks_A_Log.ldf';
 ```
 
 3. Optionally update statistics:
@@ -133,13 +132,18 @@ USE AdventureWorks;
 EXEC sp_change_users_login 'Report';
 ```
 
+Create login for Liza:
+```sql
+CREATE LOGIN Liza WITH PASSWORD = 'myS3cret'
+```
+
 Then fix the orphaned user:
 
 ```sql
 ALTER USER Liza WITH LOGIN = Liza;
 ```
 
-If needed, recreate the login with the original SID using `sp_help_revlogin` from the source.
+
 
 ---
 
