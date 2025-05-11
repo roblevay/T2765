@@ -4,6 +4,7 @@
 
 ### Instructions
 
+Download the file 
 
 
 1. Restore the `CorruptTsql` database on the default instance using this command:
