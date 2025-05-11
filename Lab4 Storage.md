@@ -1,6 +1,6 @@
-# 🧪 Lab 4: Managing Database Storage
+# 🧪 2. SQL Server – Managing Database Storage
 
-## Exercise 1 – Create a Database
+## Step 1 – Create a Database
 
 ### Instructions
 
@@ -31,7 +31,7 @@ LOG ON
 
 ---
 
-## Exercise 2 – Move `tempdb`
+## Step 2 – Move `tempdb`
 
 ### Instructions
 
@@ -65,7 +65,7 @@ ALTER DATABASE tempdb MODIFY FILE (NAME = templog, FILENAME = 'C:\DbFiles\MsSqlS
 
 ---
 
-## Exercise 3 – Detach and Attach a Database
+## Step 3 – Detach and Attach a Database
 
 ### Instructions
 
@@ -114,9 +114,9 @@ FOR ATTACH;
 
 ---
 
-© Tibor Karaszi Konsulting and Cornerstone Group AB
 
-# 🧪 1. SQL Server – Restore from Backup  (Step-by-Step)
+
+# 🧪 2. SQL Server – Restore from Backup  (Step-by-Step)
 
 ## 🎯 Objective
 
@@ -176,7 +176,7 @@ WITH
 RESTORE FILELISTONLY FROM DISK = 'C:\sqlbackups\AdventureWorksDW.bak';
 ```
 
-# 🧪 2. SQL Server – Restore from BACPAC  (Step-by-Step)
+# 🧪 3. SQL Server – Restore from BACPAC  (Step-by-Step)
 ---
 
 ## 📦 Step 1 – Export AdventureWorks to BACPAC
