@@ -59,7 +59,7 @@ SELECT * FROM msdb.dbo.suspect_pages;
 
 ---
 
-## Exercise 2 – Create Maintenance Routines
+## Step 2 – Create Maintenance Routines
 
 ### Instructions
 
@@ -77,10 +77,9 @@ Use your best judgment based on the lab guide and what you consider relevant mai
 
 ---
 
-© Tibor Karaszi Konsulting and Cornerstone Group AB
 
 
-# Exercise 1: SQL Server Index Fragmentation & Statistics Exercise
+# Exercise 2: SQL Server Index Fragmentation & Statistics Exercise
 
 ## 🏁 Step 1: Create test database and table
 
@@ -207,7 +206,7 @@ You've now learned how to:
 
 
 
-# 🛠️ Exercise 2: SQL Server Maintenance Plans – Step-by-Step Exercise
+# 🛠️ Exercise 3: SQL Server Maintenance Plans – Step-by-Step Exercise
 
 ## 🎯 Objective
 
@@ -307,7 +306,7 @@ If time permits, verify that the Sql Server Agent service is running and execute
 &nbsp;
 
 
-# 🔧 Exercise 3: Using Ola Hallengren’s SQL Server Maintenance Solution
+# 🔧 Exercise 4: Using Ola Hallengren’s SQL Server Maintenance Solution
 
 ## 🎯 Objective
 
