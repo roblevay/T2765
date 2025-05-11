@@ -81,6 +81,47 @@ You now feel that you want to raise the compatibility level for the database. Do
 
 ---
 
+## Method 1 Answer suggestions
+
+### 🔐 Step 1 – Create Login and User on `North`
+
+On `North`:
+
+```sql
+CREATE LOGIN Liza WITH PASSWORD = 'myS3cret';
+GO
+USE AdventureWorks;
+CREATE USER Liza FOR LOGIN Liza;
+```
+
+---
+
+### 💾 Step 2 – Backup and Restore AdventureWorks
+
+1. On `North`, back up the database:
+
+```sql
+BACKUP DATABASE AdventureWorks
+TO DISK = 'C:\DbFiles\AdventureWorks.bak';
+```
+
+2. On `North\A`, restore the database with different physical file names:
+
+```sql
+RESTORE DATABASE AdventureWorks
+FROM DISK = 'C:\DbFiles\AdventureWorks.bak'
+WITH MOVE 'AdventureWorks_Data' TO 'C:\DbFiles\AdventureWorks_A_Data.mdf',
+     MOVE 'AdventureWorks_Log' TO 'C:\DbFiles\AdventureWorks_A_Log.ldf',
+     REPLACE;
+```
+
+3. Optionally update statistics:
+
+```sql
+USE AdventureWorks;
+EXEC sp_updatestats;
+```
+
 ## 🧷 Method 2 – Copy Database Wizard (Detach and Attach)
 
 ### 🔐 Step 1 – Set SQL Server Agent Credentials on `North\A`
