@@ -41,7 +41,7 @@ DBCC CHECKDB(CorruptTsql) WITH NO_INFOMSGS;
 
 **Identify the corrupt table using object_id:**
 ```sql
-DECLARE @table_id int = 629577281;
+DECLARE @table_id int = 44;
 SELECT
     OBJECT_SCHEMA_NAME(@table_id, DB_ID('CorruptTsql')),
     OBJECT_NAME(@table_id, DB_ID('CorruptTsql'));
