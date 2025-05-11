@@ -1,6 +1,6 @@
-# 🛠️ Lab 5: Integrity Checks and Maintenance
+# Exercise 1: SQL Server Index Fragmentation & Statistics Exercise
 
-## Exercise 1 – Run DBCC CHECKDB
+## Step 1 – Run DBCC CHECKDB
 
 ### Instructions
 
