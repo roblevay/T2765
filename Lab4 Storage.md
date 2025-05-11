@@ -1,103 +1,120 @@
-# 🗄️ Lab 4: Managing Database Storage
+# 🧪 Lab 4: Managing Database Storage
+
+## Exercise 1 – Create a Database
+
+### Instructions
+
+Create a database named **CRM** on the default instance with the following specifications:
+
+- Database files in the `C:\DbFiles\MSSQLSERVER` folder
+- One `.mdf` file, size 50 MB
+- One `.ndf` file named `CRM_HistoryData.ndf`, size 100 MB, in a filegroup named `History`
+- One transaction log file, size 20 MB
+- All files should have a filegrowth of 20 MB and a max size of 20 GB
 
 ---
-Lab 4: Managing database storage
-Ex 1. Create a database
-Create a database named CRM on the default instance with below specifications:
-• Database files in the C:\DbFiles\MSSQLSERVER folder.
-• One mdf file, size 50 MB
-• One file named CRM_ HistoryData.ndf, size 100MB, in a filegroup named History.
-• One transaction log file, size 20 MB.
-• The files should have a filegrowth of 20MB and max size of 20 GB.
-Ex 2. Move tempdb
-Move the tempdb files to the “C:\DbFiles\MSSQLSERVER folder”. There is no GUI in SSMS for this. Use an “ALTER DATABASE … MODIFY FILE ” command for each file that tempdb uses. Do a “SELECT * FROM tempdb.sys.database_files” to see what files tempdb has. Restart SQL Server to verify that the new files are created where you specified. Delete the old tempdb files.
-If you want assistance with managing tempdb, check out https://sqlblog.karaszi.com/managing-tempdb/.
-If you're not careful, then your SQL server might refuse to start and we are in for some existing troubleshooting. Feel free to skip this exercise of you feel nervous.
-Ex 3. Detach and attach a database
-Detach the CRM database you created in above exercise 1 from the default instance. Copy the database files to the C:\DbFiles\A folder. Make sure that the service account for the A instance is owner of those files and has full permissions of those files. Attach the database onto the A-instance. Re-attach the database based on the original files to the default instance.
-Lab 4 answer suggestions
-Ex 3. Detach and attach a database 8
-Copyright Tibor Karaszi Konsulting and Cornerstone Group AB
-Lab 4 answer suggestions
-Ex 1. Create a database
+
+### Answer Suggestion
+
+```sql
 CREATE DATABASE CRM
 ON PRIMARY
-( NAME = 'CRM', FILENAME = N'C:\DbFiles\MsSqlServer\CRM.mdf'
-, SIZE = 50MB, FILEGROWTH = 20MB, MAXSIZE = 20GB),
+( NAME = 'CRM', FILENAME = N'C:\DbFiles\MsSqlServer\CRM.mdf',
+  SIZE = 50MB, FILEGROWTH = 20MB, MAXSIZE = 20GB),
 FILEGROUP History
-( NAME = 'CRM_HistoryData', FILENAME = N'C:\DbFiles\MsSqlServer\CRM_HistoryData.ndf'
-, SIZE = 100MB, FILEGROWTH = 20MB, MAXSIZE = 20GB)
+( NAME = 'CRM_HistoryData', FILENAME = N'C:\DbFiles\MsSqlServer\CRM_HistoryData.ndf',
+  SIZE = 100MB, FILEGROWTH = 20MB, MAXSIZE = 20GB)
 LOG ON
-( NAME = 'CRM_log', FILENAME = N'C:\DbFiles\MsSqlServer\CRM_log.ldf'
-, SIZE = 20MB, FILEGROWTH = 20MB, MAXSIZE = 20GB)
-Lab 4 answer suggestions
-Ex 3. Detach and attach a database 9
-Copyright Tibor Karaszi Konsulting and Cornerstone Group AB
-Ex 2. Move tempdb
-First check your current tempdb current and template structure:
---Current
-SELECT
-'tempdb' AS db_name_
-,file_id
-,name
-,physical_name
-,size * 8/1024 AS size_MB
-,type_desc
-,CASE WHEN is_percent_growth = 1 THEN CAST(growth AS varchar(3)) + ' %' ELSE CAST(growth * 8/1024 AS varchar(10)) + ' MB' END AS growth
-,max_size * 8/1024 AS max_size_MB
-FROM tempdb.sys.database_files
-ORDER BY type, file_id
---Template
-SELECT
-DB_NAME(database_id) AS db_name_
-,file_id
-,name
-,physical_name
-,size * 8/1024 AS size_MB
-,type_desc
-,CASE WHEN is_percent_growth = 1 THEN CAST(growth AS varchar(3)) + ' %' ELSE CAST(growth * 8/1024 AS varchar(10)) + ' MB' END AS growth
-,max_size * 8/1024 AS max_size_MB
-FROM master.sys.master_files
-WHERE DB_NAME(database_id) = 'tempdb'
-ORDER BY db_name_, type, file_id
-Below is an example where we change startup folder an instance having 4 data files. Adjust below to match your installation, if needed.
-ALTER DATABASE tempdb
-MODIFY FILE (NAME = tempdev, SIZE = 8MB, FILEGROWTH = 64MB, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb.mdf')
-ALTER DATABASE tempdb
-MODIFY FILE (NAME = temp2, SIZE=8MB, FILEGROWTH = 64MB, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb_mssql_2.ndf')
-ALTER DATABASE tempdb
-MODIFY FILE (NAME = temp3, SIZE=8MB, FILEGROWTH = 64MB, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb_mssql_3.ndf')
-ALTER DATABASE tempdb
-MODIFY FILE (NAME = temp4, SIZE=8MB, FILEGROWTH = 64MB, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb_mssql_4.ndf')
-ALTER DATABASE tempdb
-MODIFY FILE (NAME = templog, SIZE=8MB, FILEGROWTH = 64MB, FILENAME = 'C:\DbFiles\MsSqlServer\templog.ldf')
-Restart SQL Server to verify that the new files are created where you specified. Delete the old tempdb files.
-Lab 4 answer suggestions
-Ex 3. Detach and attach a database 10
-Copyright Tibor Karaszi Konsulting and Cornerstone Group AB
-Ex 3. Detach and attach a database
-Logon to the default instance and execute:
-EXEC sp_detach_db 'CRM'
-Copy the database files to the C:\DbFiles\A folder. Set full permissions as well as ownership on the files to the MSSQL$A account. You can use below from a command prompt:
+( NAME = 'CRM_log', FILENAME = N'C:\DbFiles\MsSqlServer\CRM_log.ldf',
+  SIZE = 20MB, FILEGROWTH = 20MB, MAXSIZE = 20GB);
+```
+
+---
+
+## Exercise 2 – Move `tempdb`
+
+### Instructions
+
+Move the `tempdb` files to the `C:\DbFiles\MSSQLSERVER` folder.
+
+> ⚠️ There is no GUI in SSMS for this. Use `ALTER DATABASE ... MODIFY FILE` for each file.  
+> Run `SELECT * FROM tempdb.sys.database_files` to inspect current files.
+
+Restart SQL Server to verify the files are created in the new location. Delete the old files.
+
+🔗 [Managing tempdb – Karaszi](https://sqlblog.karaszi.com/managing-tempdb/)
+
+---
+
+### Answer Suggestion
+
+```sql
+-- Check current files
+SELECT name, physical_name FROM tempdb.sys.database_files;
+
+-- Template from master
+SELECT name, physical_name FROM master.sys.master_files WHERE DB_NAME(database_id) = 'tempdb';
+
+-- Move files (example with 4 data files and 1 log)
+ALTER DATABASE tempdb MODIFY FILE (NAME = tempdev, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb.mdf');
+ALTER DATABASE tempdb MODIFY FILE (NAME = temp2, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb_mssql_2.ndf');
+ALTER DATABASE tempdb MODIFY FILE (NAME = temp3, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb_mssql_3.ndf');
+ALTER DATABASE tempdb MODIFY FILE (NAME = temp4, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb_mssql_4.ndf');
+ALTER DATABASE tempdb MODIFY FILE (NAME = templog, FILENAME = 'C:\DbFiles\MsSqlServer\templog.ldf');
+```
+
+---
+
+## Exercise 3 – Detach and Attach a Database
+
+### Instructions
+
+1. Detach the `CRM` database from the default instance.
+2. Copy the database files to `C:\DbFiles\A`.
+3. Ensure the `MSSQL$A` service account has full ownership and permissions.
+4. Attach the database on the `A` instance.
+5. Re-attach the original copy on the default instance.
+
+---
+
+### Answer Suggestion
+
+**Detach from default instance:**
+```sql
+EXEC sp_detach_db 'CRM';
+```
+
+**Set permissions (CMD):**
+```cmd
 icacls C:\DbFiles\a\CRM.mdf /setowner MSSQL$A
 icacls C:\DbFiles\a\CRM.mdf /grant MSSQL$A:F
 icacls C:\DbFiles\a\CRM_HistoryData.ndf /setowner MSSQL$A
 icacls C:\DbFiles\a\CRM_HistoryData.ndf /grant MSSQL$A:F
 icacls C:\DbFiles\a\CRM_log.ldf /setowner MSSQL$A
 icacls C:\DbFiles\a\CRM_log.ldf /grant MSSQL$A:F
-Now login to the A instance and execute below:
-CREATE DATABASE CRM ON
-(FILENAME = N'C:\DbFiles\a\CRM.mdf' )
-,(FILENAME = N'C:\DbFiles\a\CRM_HistoryData.ndf' )
-,(FILENAME = N'C:\DbFiles\a\CRM_log.ldf' )
-FOR ATTACH
-And re-attach the CRM database on the default instance:
-CREATE DATABASE CRM ON
-(FILENAME = N'C:\DbFiles\MsSqlServer\CRM.mdf' )
-,(FILENAME = N'C:\DbFiles\MsSqlServer\CRM_HistoryData.ndf' )
-,(FILENAME = N'C:\DbFiles\MsSqlServer\CRM_log.ldf' )
-FOR ATTACH
+```
 
+**Attach on A-instance:**
+```sql
+CREATE DATABASE CRM ON
+(FILENAME = N'C:\DbFiles\a\CRM.mdf'),
+(FILENAME = N'C:\DbFiles\a\CRM_HistoryData.ndf'),
+(FILENAME = N'C:\DbFiles\a\CRM_log.ldf')
+FOR ATTACH;
+```
+
+**Re-attach on default instance:**
+```sql
+CREATE DATABASE CRM ON
+(FILENAME = N'C:\DbFiles\MsSqlServer\CRM.mdf'),
+(FILENAME = N'C:\DbFiles\MsSqlServer\CRM_HistoryData.ndf'),
+(FILENAME = N'C:\DbFiles\MsSqlServer\CRM_log.ldf')
+FOR ATTACH;
+```
+
+---
+
+© Tibor Karaszi Konsulting and Cornerstone Group AB
 
 # 🧪 1. SQL Server – Restore from Backup  (Step-by-Step)
 
