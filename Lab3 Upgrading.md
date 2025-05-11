@@ -122,6 +122,44 @@ USE AdventureWorks;
 EXEC sp_updatestats;
 ```
 
+---
+
+### 🧩 Step 3 – Fix Orphaned User
+
+On `North\A`:
+
+```sql
+USE AdventureWorks;
+EXEC sp_change_users_login 'Report';
+```
+
+Then fix the orphaned user:
+
+```sql
+ALTER USER Liza WITH LOGIN = Liza;
+```
+
+If needed, recreate the login with the original SID using `sp_help_revlogin` from the source.
+
+---
+
+### ⚙️ Step 4 – Raise Compatibility Level
+
+Check current level:
+
+```sql
+SELECT compatibility_level
+FROM sys.databases
+WHERE name = 'AdventureWorks';
+```
+
+Raise it (example for SQL Server 2019):
+
+```sql
+ALTER DATABASE AdventureWorks
+SET COMPATIBILITY_LEVEL = 150;
+```
+
 ## 🧷 Method 2 – Copy Database Wizard (Detach and Attach)
 
 ### 🔐 Step 1 – Set SQL Server Agent Credentials on `North\A`
