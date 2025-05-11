@@ -80,6 +80,14 @@ ALTER DATABASE CorruptTsql SET SINGLE_USER WITH ROLLBACK IMMEDIATE
 DBCC CHECKDB(CorruptTsql,REPAIR_ALLOW_DATA_LOSS )  WITH NO_INFOMSGS;
 ```
 
+Den kan behöva köras några gånger men nu är nog tabellen Customers tom...
+
+```tsql
+ALTER DATABASE CorruptTsql SET MULTI_USER WITH ROLLBACK IMMEDIATE
+SELECT * FROM Customers
+```
+
+
 ---
 
 ## Step 2 – Create Maintenance Routines
