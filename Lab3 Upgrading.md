@@ -38,7 +38,9 @@ Create a user in the Adventureworks database for above login. The user should al
 ### 💾 Step 2 – Create and restore a backup
 
 Create a backup of the Adventureworks database on the default instance. Use whatever backup file name and path you want (for instance C:\DbFiles\ Adventureworks.bak).  
+
 Restore this backup on the A instance. Make sure that the database physical file names are different from the default instance’s names (since you are on the same machine).  
+
 Update statistics on the restored database. This isn’t really related to doing an upgrade or copy/move of a database since the statistics comes with the backup and there are no changes between statistics format between versions. But almost everybody “out there” believes that this is necessary so feel free to do that if you have the time. Use the procedure sp_updatestats to do this.
 
 ---
