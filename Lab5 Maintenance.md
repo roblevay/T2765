@@ -58,6 +58,13 @@ SELECT * FROM dbo.customers;
 ```sql
 SELECT * FROM msdb.dbo.suspect_pages;
 ```
+Det ger förmodligen inget resultat. 
+
+Testa istället
+
+```sql
+DBCC CHECKTABLE('Customers') WITH ALL_ERRORMSGS, NO_INFOMSGS;
+```
 
 ---
 
