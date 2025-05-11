@@ -59,22 +59,15 @@ And then you want to connect that user to a login. You have several options to d
 
 ---
 
-### ⚙️ Step 4 – Raise Compatibility Level
+### ⚙️ Step 4 – Raise the Compatibility Level
 
 Check current level:
 
-```sql
-SELECT compatibility_level
-FROM sys.databases
-WHERE name = 'AdventureWorks';
-```
+Imagine that the developers/vendors now say that they support the new versions’s compatibility level.  
 
-Raise it (example for SQL Server 2019):
+Also, imagine that you have been running your application with Query Store enabled for a couple of weeks so you have a history of your SQL queries, their execution plans and run-time statistics.  
 
-```sql
-ALTER DATABASE AdventureWorks
-SET COMPATIBILITY_LEVEL = 150;
-```
+You now feel that you want to raise the compatibility level for the database. Do that.
 
 ---
 
