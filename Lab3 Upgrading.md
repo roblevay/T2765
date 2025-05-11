@@ -26,9 +26,11 @@ Learn two different methods to copy a database from one SQL Server instance (`No
 
 ### 🔐 Step 1 – Create Login and User on the source server
 
-Create a SQL Server login on the default instance:
-• Name: Liza
-• Password: myS3cret
+Create a SQL Server login on the default instance:  
+
+• Name: Liza  
+• Password: myS3cret  
+
 Create a user in the Adventureworks database for above login. The user should also be named Liza.
 
 ---
