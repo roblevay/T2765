@@ -90,24 +90,6 @@ SELECT * FROM Customers
 
 ---
 
-## Step 2 – Create Maintenance Routines
-
-### Instructions
-
-Create maintenance routines for the default instance.  
-Use either a **Maintenance Plan** or **Ola Hallengren’s maintenance procedures**.
-
-Customize and tweak the maintenance tasks to fit your environment and time constraints.
-
----
-
-### Answer Suggestion
-
-There are no predefined answers for this task.  
-Use your best judgment based on the lab guide and what you consider relevant maintenance routines.
-
----
-
 
 
 # Exercise 2: SQL Server Index Fragmentation & Statistics Exercise
