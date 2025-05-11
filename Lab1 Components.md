@@ -1,7 +1,7 @@
 
 # SQL Server Introductory Exercises
 
-First, download the file Folders.bat from the Files folder and run it as administrator. The files will be created
+First, download the file Folders.bat from the Files folder and run it as administrator. The folders for the exercises will be created
 
 ### Exercise 1: Identify Version and Edition (20 min)
 
