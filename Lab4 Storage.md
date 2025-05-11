@@ -1,4 +1,4 @@
-# 🧪 2. SQL Server – Managing Database Storage
+# 🧪 1. SQL Server – Managing Database Storage
 
 ## Step 1 – Create a Database
 
