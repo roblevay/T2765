@@ -4,7 +4,7 @@
 
 ### Instructions
 
-Download the file 
+Download the file CorruptTsql.bak to the folder C:\DemoDatabases\Course_DemoDatabases\
 
 
 1. Restore the `CorruptTsql` database on the default instance using this command:
