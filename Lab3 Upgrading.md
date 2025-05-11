@@ -1,8 +1,4 @@
-Varsågod Robert – här är hela filen sammanslagen i en och samma snygga `.md`-fil med samma stil rakt igenom:
 
----
-
-````markdown
 # 🧪 SQL Server – Copying and Restoring Databases
 
 ## 🎯 Objective
