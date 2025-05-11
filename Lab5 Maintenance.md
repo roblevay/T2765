@@ -51,7 +51,7 @@ SELECT
 
 **Try selecting from the corrupt table:**
 ```sql
-SELECT * FROM Production.Suppliers;
+SELECT * FROM dbo.customers;
 ```
 
 **Check suspect pages:**
