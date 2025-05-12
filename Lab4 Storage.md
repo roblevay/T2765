@@ -121,16 +121,6 @@ Restart SQL Server. Verify the files are created in the new location. Delete the
 EXEC sp_detach_db 'CRM';
 ```
 
-**Set permissions (CMD):**
-```cmd
-icacls C:\DbFiles\a\CRM.mdf /setowner MSSQL$A
-icacls C:\DbFiles\a\CRM.mdf /grant MSSQL$A:F
-icacls C:\DbFiles\a\CRM_HistoryData.ndf /setowner MSSQL$A
-icacls C:\DbFiles\a\CRM_HistoryData.ndf /grant MSSQL$A:F
-icacls C:\DbFiles\a\CRM_log.ldf /setowner MSSQL$A
-icacls C:\DbFiles\a\CRM_log.ldf /grant MSSQL$A:F
-```
-
 **Attach on A-instance:**
 ```sql
 CREATE DATABASE CRM ON
