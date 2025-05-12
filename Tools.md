@@ -128,6 +128,41 @@ The procedure returns a row for each table in current database (unless table spr
 
 ---
 
+Självklart, här är en motsvarande sektion för `sp_indexinfo` i samma stil:
+
+---
+
+## 5. `sp_indexinfo` – Index Info
+
+### 🔽 Download
+
+Go to:
+[https://karaszi.com/sp\_indexinfo-list-indexes-and-their-attributes](https://karaszi.com/sp_indexinfo-list-indexes-and-their-attributes) (open in a new window)
+
+Click `sp_indexinfo.sql`
+
+### 📦 Install
+
+1. Copy the script and paste it in SSMS
+2. Run it in the database where you want the procedure (commonly `master`)
+
+### ▶️ Usage
+
+```sql
+EXEC sp_indexinfo;
+```
+
+### 🧾 Output
+
+The procedure lists all indexes in the current database, with detailed attributes:
+table name, index name, type, uniqueness, number of rows, size in MB, fragmentation, included columns, and more.
+Superb for index reviews and cleanup decisions.
+
+---
+
+Vill du ha motsvarande för `sp_indexanalyse` också?
+
+
 ## ✅ Summary
 These tools are safe, free, and widely used in the SQL Server community.  
 They help you analyze, audit, and understand your servers in minutes.
