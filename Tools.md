@@ -160,7 +160,7 @@ Superb for index reviews and cleanup decisions.
 
 ---
 
-Vill du ha motsvarande för `sp_indexanalyse` också?
+
 
 
 ## ✅ Summary
