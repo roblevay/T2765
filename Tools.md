@@ -196,6 +196,95 @@ Mycket användbart för att identifiera index att radera eller slå ihop.
 
 ---
 
+### 7. sp\_WhoIsActive
+
+**Author:** Adam Machanic
+**URL:** [https://github.com/amachanic/sp\_whoisactive](https://github.com/amachanic/sp_whoisactive)
+
+**Installation:**
+
+1. Download and open `sp_WhoIsActive.sql`
+2. Copy the contents and execute in SSMS to install
+
+**To run it:**
+
+```sql
+EXEC dbo.sp_WhoIsActive;
+```
+
+Try this blocking scenario:
+
+```sql
+-- In Window 1
+BEGIN TRAN
+UPDATE Adventureworks.person.person
+SET Lastname = 'Jones' WHERE BusinessEntityID = 1;
+```
+
+```sql
+-- In Window 2
+SELECT * FROM Adventureworks.person.person;
+```
+
+Then run:
+
+```sql
+-- In Window 1
+EXEC dbo.sp_WhoIsActive;
+```
+
+And clean up:
+
+```sql
+ROLLBACK TRAN;
+```
+
+---
+
+### 8. sp\_PressureDetector
+
+**Author:** Erik Darling
+**URL:** [https://github.com/erikdarlingdata/DarlingData](https://github.com/erikdarlingdata/DarlingData)
+
+**Installation:**
+
+1. Open the folder `sp_PressureDetector` and open `sp_PressureDetector.sql`
+2. Copy and paste into SSMS, then run it
+
+**To use it:**
+
+```sql
+EXECUTE sp_PressureDetector;
+```
+
+---
+
+### 9. sp\_HumanEvents
+
+**Author:** Erik Darling
+**URL:** [https://github.com/erikdarlingdata/DarlingData](https://github.com/erikdarlingdata/DarlingData)
+
+**Installation:**
+
+1. Go to the GitHub repo and download the install script in `/sp_HumanEvents/`
+2. Run the file in SSMS
+
+**To use it:**
+
+```sql
+-- In Window 1
+USE Adventureworks;
+EXEC dbo.sp_HumanEvents @event_type = 'query', @query_duration_ms = 1, @seconds_sample = 20, @database_name = 'AdventureWorks';
+```
+
+```sql
+-- In Window 2 (while the above is running)
+SELECT * FROM person.person;
+```
+
+Go back to Window 1. The query will be captured.
+
+---
 
 
 
