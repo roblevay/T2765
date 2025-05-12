@@ -142,7 +142,7 @@ fsutil file createnew C:\test\writetest.dat 1073741824
 ## Step 2 – Run DiskSpd
 
 ```cmd
-diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\test\writetest.dat
+c:\temp\diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\test\writetest.dat
 ```
 
 ## Output Interpretation
