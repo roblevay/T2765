@@ -137,7 +137,7 @@ Självklart, här är en motsvarande sektion för `sp_indexinfo` i samma stil:
 ### 🔽 Download
 
 Go to:
-[https://karaszi.com/sp\_indexinfo-list-indexes-and-their-attributes](https://karaszi.com/sp_indexinfo-list-indexes-and-their-attributes) (open in a new window)
+https://karaszi.com/spindexinfo-enhanced-index-information-procedure (open in a new window)
 
 Click `sp_indexinfo.sql`
 
