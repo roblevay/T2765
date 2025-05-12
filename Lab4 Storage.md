@@ -87,8 +87,19 @@ ALTER DATABASE tempdb MODIFY FILE (NAME = temp2, FILENAME = 'C:\DbFiles\MsSqlSer
 ALTER DATABASE tempdb MODIFY FILE (NAME = temp3, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb_mssql_3.ndf');
 ALTER DATABASE tempdb MODIFY FILE (NAME = temp4, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb_mssql_4.ndf');
 ALTER DATABASE tempdb MODIFY FILE (NAME = templog, FILENAME = 'C:\DbFiles\MsSqlServer\templog.ldf');
+
+```
+Run the command
+
+
+```sql
+-- Check current files
+SELECT name, physical_name FROM tempdb.sys.database_files;
 ```
 
+The paths are changed. Check in the file system. The files have not been created.
+
+Restart SQL Server. Verify the files are created in the new location. Delete the old files.
 ---
 
 ## Step 3 – Detach and Attach a Database
