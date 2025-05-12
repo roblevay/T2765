@@ -35,7 +35,7 @@ LOG ON
 
 Skapa en ny datafil i tempdb:
 
-`´´sql
+```sql
 USE master;
 GO
 ALTER DATABASE tempdb 
@@ -46,7 +46,7 @@ ADD FILE (
     FILEGROWTH = 64MB
 );
 GO
-``
+```
 
 ### Instructions
 
