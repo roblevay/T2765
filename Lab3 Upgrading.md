@@ -110,8 +110,8 @@ TO DISK = 'C:\DbFiles\AdventureWorks.bak';
 ```sql
 RESTORE DATABASE AdventureWorks
 FROM DISK = 'C:\DbFiles\AdventureWorks.bak'
-WITH MOVE 'AdventureWorks_Data' TO 'C:\DbFiles\AdventureWorks_A_Data.mdf',
-     MOVE 'AdventureWorks_Log' TO 'C:\DbFiles\AdventureWorks_A_Log.ldf';
+WITH MOVE 'AdventureWorks2017' TO 'C:\DbFiles\AdventureWorks2017.mdf',
+     MOVE 'AdventureWorks2017_Log' TO 'C:\DbFiles\AdventureWorks2017_Log.ldf';
 ```
 
 3. Optionally update statistics:
