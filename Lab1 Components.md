@@ -80,7 +80,7 @@ BACKUP DATABASE master TO DISK = 'C:\temp\master.bak' WITH INIT;
 **Step 3: Check the Windows Application Log**
 - Open **Event Viewer**.
 - Go to **Windows Logs** > **Application**.
-- Filter for events from `MSSQLSERVER` or `SQLSERVERAGENT`.
+- Filter for events from `MSSQLSERVER` or `SQLSERVERAGENT` (Click on Filter Current Log on the right)
 - Locate entries about the backup.
 
 **Step 4: Locate and Open the Error Log File Manually**
