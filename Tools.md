@@ -104,6 +104,26 @@ Shows space usage at file and object level:
 
 > Very useful for tracking growth or troubleshooting large tables.
 
+
+## 4. `sp_tableinfoo` – Table Info
+
+### 🔽 Download
+Go to:  
+https://karaszi.com/sptableinfo-list-tables-and-space-usage (open in a new window)
+
+Click sp_tableinfo.sql 
+
+### 📦 Install
+1. Copy the script and paste it in SSMS
+2. Run it in the database where you want the procedure (commonly `master`).
+
+### ▶️ Usage
+```sql
+EXEC sp_tableinfo;
+```
+
+### 🧾 Output
+The procedure returns a row for each table in current database (unless table spread over several filegroups, using several indexes or partitions; if so then several rows are returned). It returns schema name, table name, number of rows, size in both MB and pages and file group.
 ---
 
 ## ✅ Summary
