@@ -1,10 +1,10 @@
-## Student01
+## Student01 Alexander
 
 ```cmd
 mstsc /v 135.225.131.14
 ```
 
-## Student02
+## Student02 Erik
 
 ```cmd
 mstsc /v 135.225.59.93
