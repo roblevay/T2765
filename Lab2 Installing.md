@@ -52,7 +52,7 @@ Run the SQLIOSIM tool with a custom configuration to verify disk I/O integrity.
 
 - Navigate to the SQL Server Binn directory:
 ```cmd
-cd "C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Binn"
+cd "C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn"
 ```
 - Confirm that `SQLIOSim.exe` exists.
 
