@@ -50,17 +50,17 @@ Run the SQLIOSIM tool with a custom configuration to verify disk I/O integrity.
 
 ### Step 2: Locate SQLIOSIM
 
-- Navigate to the SQL Server Binn directory:
-```cmd
-cd "C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn"
-```
+- In file explorer, Navigate to the SQL Server Binn directory:
+C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Binn"
+
 - Confirm that `SQLIOSim.exe` exists.
 
 ### Step 3: Start SQLIOSIM with Custom Config
 
-```cmd
+Double-click the file
+
 sqliosim.exe
-```
+
 
 - Set the cycle duration to 30 and test cycles to 2.
 - Use one data file with size 256 MB and max size 512 MB.
