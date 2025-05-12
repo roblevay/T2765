@@ -41,5 +41,14 @@ if not exist "C:\sqlbackups" (
     echo Katalogen finns redan: C:\sqlbackups
 )
 
+REM Skapa katalogen för Temp
+if not exist "C:\Temp" (
+    mkdir "C:\Temp"
+    echo Skapade: C:\Temp
+) else (
+    echo Katalogen finns redan: C:\Temp
+)
+
+
 
 pause
