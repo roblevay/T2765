@@ -84,6 +84,8 @@ sqliosim.exe
 ## Goal
 Test read performance with 4 KB block size, 100% random reads, 8 threads, for 60 seconds.
 
+Download the file diskspd.exe to the c:\temp directory
+
 ## Step 1 – Create a test file
 From a command prompt:
 
