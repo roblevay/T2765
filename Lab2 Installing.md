@@ -128,7 +128,7 @@ Focus on:
 
 ---
 
-# Exercise 3. DiskSpd Basic Test – Write Performance
+# Exercise 6. DiskSpd Basic Test – Write Performance
 
 ## Goal
 Test write performance with 64 KB blocks, 100% sequential writes,  4 threads, 30 seconds.
