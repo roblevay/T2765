@@ -125,6 +125,7 @@ EXEC sp_tableinfo;
 ### 🧾 Output
 
 The procedure returns a row for each table in current database (unless table spread over several filegroups, using several indexes or partitions; if so then several rows are returned). It returns schema name, table name, number of rows, size in both MB and pages and file group.
+
 ---
 
 ## ✅ Summary
