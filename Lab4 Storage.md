@@ -33,6 +33,21 @@ LOG ON
 
 ## Step 2 – Move `tempdb`
 
+Skapa en ny datafil i tempdb:
+
+`´´sql
+USE master;
+GO
+ALTER DATABASE tempdb 
+ADD FILE (
+    NAME = temp3, 
+    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\tempdb_mssql_3.ndf', 
+    SIZE = 64MB, 
+    FILEGROWTH = 64MB
+);
+GO
+``
+
 ### Instructions
 
 Move the `tempdb` files to the `C:\DbFiles\MSSQLSERVER` folder.
