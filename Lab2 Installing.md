@@ -66,6 +66,7 @@ sqliosim.exe
 - Use one data file with size 256 MB and max size 512 MB.
 - Click OK → Simulator → Start
 - Optional: rerun with different parameters
+- The simulation will take less than 10 minutes
 
 ### Step 4: Review the Results
 
