@@ -99,6 +99,7 @@ fsutil file createnew C:\test\testfile.dat 1073741824
 ```cmd
 c:\temp\diskspd -b4K -d60 -o8 -t8 -r -W0 -L C:\test\testfile.dat
 ```
+Wait for some time for the program to finish.
 
 ## Understanding the Output
 
