@@ -164,37 +164,6 @@ Här kommer en i samma stil för `sp_indexanalyse`:
 
 ---
 
-## 6. `sp_indexanalyse` – Index Analysis
-
-### 🔽 Download
-
-Go to:
-[https://karaszi.com/sp\_indexanalyse-analyse-indexes](https://karaszi.com/sp_indexanalyse-analyse-indexes) (open in a new window)
-
-Click `sp_indexanalyse.sql`
-
-### 📦 Install
-
-1. Copy the script and paste it in SSMS
-2. Run it in the database where you want the procedure (vanligtvis `master`)
-
-### ▶️ Usage
-
-```sql
-EXEC sp_indexanalyse;
-```
-
-### 🧾 Output
-
-Proceduren analyserar alla index i den aktuella databasen och identifierar:
-
-* Oanvända index (baserat på `sys.dm_db_index_usage_stats`)
-* Dubblettindex (samma kolumner i samma ordning)
-* Delmängdsindex (index som är helt inkluderade i andra)
-
-Mycket användbart för att identifiera index att radera eller slå ihop.
-
----
 
 ### 7. sp\_WhoIsActive
 
