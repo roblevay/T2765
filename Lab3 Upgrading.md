@@ -201,16 +201,17 @@ INSERT INTO TestData VALUES (1, 'Gamma'), (2, 'Delta');
 ### 🧙 Step 3 – Use the Copy Database Wizard (Detach and Attach)
 
 1. In SSMS, connect to `North`.
-2. Right-click the server > **Tasks** > **Copy Database**.
-3. Click **Next** on the welcome screen.
-4. Select `North` as the Source Server and click **Next**
-5. Select `North\A` as the destination server and click **Next**
-6. Choose **Use Detach and Attach method** → click **Next**.
-7. Select to copy the database: `MoveDb` → click **Next**.
-8. Set destination file paths if needed → click **Next**.
-9. In Configure the Package → click **Next**.
-10. Schedule the package to run immediately and click **Next**
-11. Click **Finish** The database will be copied
+2. Right-click databases and select **Refresh**
+3. Right-click the server > **Tasks** > **Copy Database**.
+4. Click **Next** on the welcome screen.
+5. Select `North` as the Source Server and click **Next**
+6. Select `North\A` as the destination server and click **Next**
+7. Choose **Use Detach and Attach method** → click **Next**.
+8. Select to copy the database: `MoveDb` → click **Next**.
+9. Set destination file paths if needed → click **Next**.
+10. In Configure the Package → click **Next**.
+11. Schedule the package to run immediately and click **Next**
+12. Click **Finish** The database will be copied
 
 ---
 
