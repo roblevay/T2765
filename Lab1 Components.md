@@ -3,6 +3,8 @@
 
 First, download the file Folders.bat from the Files folder and run it as administrator. The folders for the exercises will be created
 
+Also, go to Settings, Apps, Default Apps. Verify that Microsoft Edge is your default browser.
+
 ### Exercise 1: Identify Version and Edition (20 min)
 
 **Step 1: Using Object Explorer (GUI)**
