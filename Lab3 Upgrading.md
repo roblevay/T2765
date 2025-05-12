@@ -202,7 +202,7 @@ INSERT INTO TestData VALUES (1, 'Gamma'), (2, 'Delta');
 
 1. In SSMS, connect to `North`.
 2. Right-click databases and select **Refresh**
-3. Right-click the server > **Tasks** > **Copy Database**.
+3. Right-click the database MoveDb and select > **Tasks** > **Copy Database**.
 4. Click **Next** on the welcome screen.
 5. Select `North` as the Source Server and click **Next**
 6. Select `North\A` as the destination server and click **Next**
