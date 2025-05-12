@@ -85,6 +85,7 @@ sqliosim.exe
 Test read performance with 4 KB block size, 100% random reads, 8 threads, for 60 seconds.
 
 ## Step 1 – Create a test file
+From a command prompt:
 
 ```cmd
 fsutil file createnew C:\test\testfile.dat 1073741824
