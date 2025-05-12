@@ -45,6 +45,17 @@ ADD FILE (
     SIZE = 64MB, 
     FILEGROWTH = 64MB
 );
+USE master;
+GO
+ALTER DATABASE tempdb 
+ADD FILE (
+    NAME = temp4, 
+    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\tempdb_mssql_4.ndf', 
+    SIZE = 64MB, 
+    FILEGROWTH = 64MB
+);
+
+
 GO
 ```
 
