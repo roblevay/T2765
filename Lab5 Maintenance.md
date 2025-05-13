@@ -86,7 +86,7 @@ Den kan behöva köras några gånger men nu är nog tabellen Customers tom...
 
 ```tsql
 ALTER DATABASE CorruptTsql SET MULTI_USER WITH ROLLBACK IMMEDIATE
-CorruptTSql.dbo.customers
+SELECT * FROM CorruptTSql.dbo.customers
 ```
 
 
