@@ -261,6 +261,8 @@ Create three separate maintenance plans in SQL Server using SQL Server Managemen
    - Add a Schedule
    - Frequency: Daily
    - Time: e.g. 2:00 AM
+If more than one subplan appear, select the ones you don't want and click Delete Selected Subplan. 
+     
 8. Save the plan (Ctrl+S or File > Save).
 
 ---
