@@ -53,7 +53,7 @@ SELECT
 
 **Try selecting from the corrupt table:**
 ```sql
-SELECT * FROM dbo.customers;
+SELECT * FROM CorruptTSql.dbo.customers;
 ```
 
 **Check suspect pages:**
