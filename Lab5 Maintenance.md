@@ -263,7 +263,8 @@ Create three separate maintenance plans in SQL Server using SQL Server Managemen
    - Time: e.g. 2:00 AM
 If more than one subplan appear, select the ones you don't want and click Delete Selected Subplan. 
      
-8. Save the plan (Ctrl+S or File > Save).
+8. Save the plan (Ctrl+S or File > Save)
+9. Execute the plan and verify that the backup files are created
 
 ---
 
