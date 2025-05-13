@@ -3,8 +3,8 @@
 ## Step 1 – Run DBCC CHECKDB
 
 ### Instructions
-
-Download the file CorruptTsql.bak to the folder C:\DemoDatabases\Course_DemoDatabases\ from the Files folder in Github
+Create the folder c:\T2765_Labfiles
+Download the file CorruptTsql.bak to the folder C:\DemoDatabases\Course_DemoDatabases\ from the Files folder in Github to the newly created folder c:\T2765_Labfiles
 
 
 1. Restore the `CorruptTsql` database on the default instance using this command:
