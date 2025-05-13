@@ -28,11 +28,12 @@ MOVE 'TSQL_log' TO 'C:\DbFiles\MsSqlServer\TSQL_log.ldf';
 
 **Restore the database:**
 ```sql
-RESTORE DATABASE CorruptTsql
-FROM DISK = 'C:\T2765_Labfiles\CorruptTsql.bak'
-WITH
-MOVE 'TSQL' TO 'C:\DbFiles\MSSQLSERVER\TSQL.mdf',
-MOVE 'TSQL_log' TO 'C:\DbFiles\MSSQLSERVER\TSQL_log.ldf';
+USE [master]
+RESTORE DATABASE CorruptTsql FROM  DISK = 'C:\T2765_Labfiles\CorruptTsql.bak' 
+WITH  
+MOVE N'CorruptTsql' TO N'C:\DbFiles\MSSQLSERVER\CorruptTsql.mdf',  
+MOVE N'CorruptTsql_log' TO N'c:\data\CorruptTsql_log.ldf'
+GO
 ```
 
 **Run DBCC CHECKDB:**
