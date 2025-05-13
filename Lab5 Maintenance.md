@@ -65,7 +65,7 @@ Det ger förmodligen inget resultat.
 Testa istället
 
 ```sql
-DBCC CHECKTABLE('Customers') WITH ALL_ERRORMSGS, NO_INFOMSGS;
+DBCC CHECKTABLE('CorruptTsql.dbo.Customers') WITH ALL_ERRORMSGS, NO_INFOMSGS;
 ```
 Detta ska ge resultat:
 
