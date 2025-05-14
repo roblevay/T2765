@@ -1,4 +1,4 @@
-# Exercise 1: SQL Server Index Fragmentation & Statistics Exercise
+# Exercise 1: DBCC CHECKDB
 
 ## Step 1 – Run DBCC CHECKDB
 
