@@ -4,17 +4,17 @@
 
 ### Instructions
 Create the folder c:\T2765_Labfiles
-Download the file CorruptTsql.bak to the folder C:\DemoDatabases\Course_DemoDatabases\ from the Files folder in Github to the newly created folder c:\T2765_Labfiles
+Download the file CorruptTsql.bak from the Files folder in Github to the newly created folder c:\T2765_Labfiles
 
 
 1. Restore the `CorruptTsql` database on the default instance using this command:
 
 ```sql
 RESTORE DATABASE CorruptTsql
-FROM DISK = 'C:\DemoDatabases\Course_DemoDatabases\CorruptTsql.bak'
+FROM DISK = 'c:\T2765_Labfiles\CorruptTsql.bak'
 WITH
-MOVE 'TSQL' TO 'C:\DbFiles\MsSqlServer\TSQL.mdf',
-MOVE 'TSQL_log' TO 'C:\DbFiles\MsSqlServer\TSQL_log.ldf';
+MOVE 'TSQL' TO 'C:\DbFiles\MsSqlServer\CorruptTsql.mdf',
+MOVE 'TSQL_log' TO 'C:\DbFiles\MsSqlServer\CorruptTsql_log.ldf';
 ```
 
 2. Run `DBCC CHECKDB` on that database and determine if the problem can be repaired **without losing data**.
