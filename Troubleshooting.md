@@ -15,7 +15,7 @@ Verify that your sql server is configured with mixed authentication (Windows and
 Download and execute the PowerShell file as administrator:
 
 ```
-Troubleshooting/Ex1.ps1
+Files/Ex1.ps1
 ```
 
 
