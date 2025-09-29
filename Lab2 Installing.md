@@ -91,7 +91,7 @@ Download the file diskspd.exe to the c:\temp directory
 From a command prompt:
 
 ```cmd
-fsutil file createnew C:\test\testfile.dat 1073741824
+fsutil file createnew C:\temp\testfile.dat 1073741824
 ```
 
 ## Step 2 – Run DiskSpd
