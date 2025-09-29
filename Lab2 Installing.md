@@ -153,7 +153,6 @@ Kommando kör ett **30 sekunder långt, 100 % skrivtest** mot `C:\temp\writetest
 
 ---
 
-Vill du att jag gör en **visuell tabell** med alla parametrar och deras effekt (som du kan använda i en kurs eller rapport)?
 
 Wait for some time for the program to finish.
 
