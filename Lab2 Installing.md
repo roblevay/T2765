@@ -170,3 +170,59 @@ c:\temp\diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\temp\writetest.dat
 | Azure Premium P30 | ~2K–5K | ~200   | ~0.5–1 ms |
 
 Write performance depends heavily on cache behavior and flush policy.
+
+
+### Exercise : ChrystalDiskMark
+
+- Download **CrystalDiskMark9_0_1.exe** from **https://github.com/roblevay/T1987**
+- Install the application using default settings
+- In the **Admin** program, click **All**. Wait for about 5 minutes for the program to run.
+
+Here is an explanation of the values on the left. You will get values for **Read MB/s** and **Write MB/s** in each box.
+
+- **SEQ1M Q8T1**  
+  Sequential read/write with **1 MB block size**, queue depth 8, 1 thread.  
+  → Good for measuring **maximum transfer speed** under parallel load.
+
+- **SEQ1M Q1T1**  
+  Sequential read/write with **1 MB block size**, queue depth 1, 1 thread.  
+  → Represents **single-threaded sequential performance**, closer to everyday file copy scenarios.
+
+- **RND4K Q32T1**  
+  Random read/write with **4 KB block size**, queue depth 32, 1 thread.  
+  → Simulates **many outstanding small I/Os**, similar to a server or heavy multitasking.
+
+- **RND4K Q1T1**  
+  Random read/write with **4 KB block size**, queue depth 1, 1 thread.  
+  → Shows **single-queue random access performance**, typical for databases or OS background operations.
+
+
+## Example CrystalDiskMark Results
+
+[![CrystalDiskMark Benchmark](f45fbed0-b0d3-42ed-8dad-006ebb507754.png)](https://github.com/roblevay/T1987/blob/main/images/CrystalDiskMark.png)
+
+### Interpretation
+
+- **SEQ1M Q8T1: 213.7 MB/s Read / 172.6 MB/s Write**  
+  High sequential performance, showing the disk can transfer large files at ~200 MB/s.  
+  → This is typical for a SATA HDD or a lower-end SSD.
+
+- **SEQ1M Q1T1: 215.0 MB/s Read / 171.1 MB/s Write**  
+  Single-threaded sequential speed is almost the same as multi-queue, which is expected.  
+  → Everyday tasks like copying files will run at ~200 MB/s.
+
+- **RND4K Q32T1: 17.8 MB/s Read / 14.8 MB/s Write**  
+  Random small-block performance with a deep queue.  
+  → Much lower than sequential, which is normal. Shows how the disk handles many small operations at once.
+
+- **RND4K Q1T1: 17.6 MB/s Read / 3.9 MB/s Write**  
+  Random small-block performance with a single queue.  
+  → Write speed here is the weakest (3–4 MB/s). This is the limiting factor for workloads like databases or lots of small file updates.
+
+### Overall Assessment
+- The drive performs well for **sequential transfers** (~200 MB/s), which means copying and moving large files is reasonably fast.  
+- **Random writes at Q1T1 are slow**, which is common for mechanical hard drives or entry-level SSDs without DRAM cache.  
+- For general use (Windows, Office, browsing, media), this performance is acceptable.  
+- For heavy multitasking or database workloads, performance would feel much slower compared to a modern NVMe SSD.
+
+
