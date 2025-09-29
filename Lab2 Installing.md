@@ -143,7 +143,7 @@ c:\temp\diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\temp\testfile.dat
 
 ### 📝 Sammanfattning
 
-Kommando kör ett **30 sekunder långt, 100 % skrivtest** mot `C:\temp\writetest.dat` med:
+Kommando kör ett **30 sekunder långt, 100 % skrivtest** mot `C:\temp\testfile.dat` med:
 
 * blockstorlek 64 KB,
 * 4 trådar,
