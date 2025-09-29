@@ -97,7 +97,7 @@ fsutil file createnew C:\temp\testfile.dat 1073741824
 ## Step 2 – Run DiskSpd
 
 ```cmd
-c:\temp\diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\testfile.dat
+c:\temp\diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\temp\testfile.dat
 ```
 
 ---
