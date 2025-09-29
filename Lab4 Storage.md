@@ -85,7 +85,6 @@ SELECT name, physical_name FROM master.sys.master_files WHERE DB_NAME(database_i
 
 -- Move files (example with 4 data files and 1 log)
 ALTER DATABASE tempdb MODIFY FILE (NAME = tempdev, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb.mdf');
-ALTER DATABASE tempdb MODIFY FILE (NAME = temp2, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb_mssql_2.ndf');
 ALTER DATABASE tempdb MODIFY FILE (NAME = temp3, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb_mssql_3.ndf');
 ALTER DATABASE tempdb MODIFY FILE (NAME = temp4, FILENAME = 'C:\DbFiles\MsSqlServer\tempdb_mssql_4.ndf');
 ALTER DATABASE tempdb MODIFY FILE (NAME = templog, FILENAME = 'C:\DbFiles\MsSqlServer\templog.ldf');
