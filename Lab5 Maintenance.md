@@ -13,8 +13,8 @@ Download the file CorruptTsql.bak from the Files folder in Github to the newly c
 RESTORE DATABASE CorruptTsql
 FROM DISK = 'c:\T2765_Labfiles\CorruptTsql.bak'
 WITH
-MOVE 'TSQL' TO 'C:\DbFiles\MsSqlServer\CorruptTsql.mdf',
-MOVE 'TSQL_log' TO 'C:\DbFiles\MsSqlServer\CorruptTsql_log.ldf';
+MOVE 'CorruptTsql' TO 'C:\DbFiles\MsSqlServer\CorruptTsql.mdf',
+MOVE 'CorruptTsql_log' TO 'C:\DbFiles\MsSqlServer\CorruptTsql_log.ldf';
 ```
 
 2. Run `DBCC CHECKDB` on that database and determine if the problem can be repaired **without losing data**.
