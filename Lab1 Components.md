@@ -68,7 +68,7 @@ net start MSSQL$A
 ### Exercise 3: Backup and Investigate Logging (20 min)
 
 **Step 1: Perform a Backup of the `master` Database**
-- Open SSMS and connect to the `North` instance.
+- Open SSMS (SQL Server Management Studio) and connect to the `North` instance.
 - Run the following command:
 ```sql
 BACKUP DATABASE master TO DISK = 'C:\temp\master.bak' WITH INIT;
