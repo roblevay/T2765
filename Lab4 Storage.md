@@ -207,20 +207,20 @@ RESTORE FILELISTONLY FROM DISK = 'C:\sqlbackups\AdventureWorksDW.bak';
 # 🧪 3. SQL Server – Restore from BACPAC  (Step-by-Step)
 ---
 
-## 📦 Step 1 – Export AdventureWorks to BACPAC
+## 📦 Step 1 – Export AdventureWorksLT to BACPAC
 
-1. In SSMS, right-click the `AdventureWorksDW` database.
+1. In SSMS, right-click the `AdventureWorksLT` database.
 2. Choose **Tasks > Export Data-tier Application**.
 3. Select **Export to a BACPAC file**.
-4. Save it to `C:\Dest\AdventureWorksDW.bacpac`.
+4. Save it to `C:\Dest\AdventureWorksLT.bacpac`.
 
 ---
 
 ## 📥 Step 2 – Import the BACPAC to a New Database
 
 1. In SSMS, right-click **Databases** > **Import Data-tier Application**.
-2. Choose the file `C:\Dest\AdventureWorksDW.bacpac`.
-3. Name the new database: `AwDWCopyFromBacPac`.
+2. Choose the file `C:\Dest\AdventureWorksLT.bacpac`.
+3. Name the new database: `AwLTCopyFromBacPac`.
 4. Set the destination Data file path and Log file path to `C:\Dest`.
 5. Finish the wizard.
 
@@ -228,9 +228,9 @@ RESTORE FILELISTONLY FROM DISK = 'C:\sqlbackups\AdventureWorksDW.bak';
 
 ## ✅ Summary
 
-You now have two copies of `AdventureWorksDW`:
+You now have two copies of `AdventureWorksDW` and AdventureWorksLT:
 - `AWDWCopyFromBackup` restored from a `.bak` file
-- `AwDWCopyFromBacPac` imported from a `.bacpac` file
+- `AwLTCopyFromBacPac` imported from a `.bacpac` file
 
 This shows two different ways to move or duplicate databases in SQL Server.
 
