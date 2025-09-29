@@ -73,3 +73,4 @@ FROM sys.dm_db_log_space_usage;
 SELECT name, recovery_model_desc, log_reuse_wait_desc
 FROM sys.databases
 WHERE name = 'newdb';
+
