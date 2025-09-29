@@ -97,7 +97,7 @@ fsutil file createnew C:\temp\testfile.dat 1073741824
 ## Step 2 – Run DiskSpd
 
 ```cmd
-c:\temp\diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\temp\testfile.dat
+c:\temp\diskspd -b64K -d30 -o4 -t4 -w0 -si -W0 -L C:\temp\testfile.dat
 ```
 
 ---
@@ -119,9 +119,9 @@ c:\temp\diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\temp\testfile.dat
   Antal trådar per målfil: här 4 trådar.
   I praktiken betyder det att testet parallelliseras för att belasta disken mer realistiskt.
 
-* **`-w100`**
-  Skriv-andel (%). 100 = rent skrivtest.
-  (0 skulle vara rent lästest, 50 en mix av läs/skriv.)
+* **`-w0`**
+  Skriv-andel (%). 0 = rent lästest.
+  (100 skulle vara rent skrivtest, 50 en mix av läs/skriv.)
 
 * **`-si`**
   Disable software caching: inaktiverar *software caching* i operativsystemet.
@@ -135,7 +135,7 @@ c:\temp\diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\temp\testfile.dat
   Logga latens för varje I/O och skriv till konsolen.
   Bra för analys av variation i responstider, inte bara total MB/s.
 
-* **`C:\temp\writetest.dat`**
+* **`C:\temp\testfile.dat`**
   Målfilen som testet körs mot. DiskSpd skapar och använder denna fil under körning.
   (Bra att välja en mapp på den disk du vill mäta.)
 
