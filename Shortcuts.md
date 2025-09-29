@@ -1,17 +1,17 @@
-## Student01 Alexander
+## Student01 Johanna
 
 ```cmd
-mstsc /v 135.225.131.14
+mstsc /v 20.91.229.5
 ```
 
-## Student02 Erik
+## Student02 Mikael
 
 ```cmd
-mstsc /v 135.225.59.93
+mstsc /v 4.223.84.69
 ```
 
 ## Kursfiler
 
 ```
-https://1drv.ms/f/c/fb5c7f8b8caa2fb7/Eqglx2XHDRZFlwm-ih6_GeoBhrUTjdYsCM08ZhS7KZLl0A?e=rwIbzE
+[https://1drv.ms/f/c/fb5c7f8b8caa2fb7/Eqglx2XHDRZFlwm-ih6_GeoBhrUTjdYsCM08ZhS7KZLl0A?e=rwIbzE](https://1drv.ms/f/c/fb5c7f8b8caa2fb7/EjknQCgh0tNDij3OpGIm1wIBUViv2yxGAQWEyqUIX3i8xg?e=Ma5EOk)
 ```
