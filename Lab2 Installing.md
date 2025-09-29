@@ -64,7 +64,6 @@ sqliosim.exe
 and select **Run as Admininstrator**
 
 - Set the cycle duration to 30 and test cycles to 2.
-- Use one data file with size 256 MB and max size 512 MB.
 - Click OK → Simulator → Start
 - Optional: rerun with different parameters
 - The simulation will take less than 10 minutes
