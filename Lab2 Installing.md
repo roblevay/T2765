@@ -99,6 +99,68 @@ fsutil file createnew C:\temp\testfile.dat 1073741824
 ```cmd
 c:\temp\diskspd -b4K -d60 -o8 -t8 -r -W0 -L C:\temp\testfile.dat
 ```
+
+
+
+```cmd
+c:\temp\diskspd -b4K -d60 -o8 -t8 -r -W0 -L C:\temp\testfile.dat
+```
+
+---
+
+### 📌 Parametrar i detalj
+
+* **`-b64K`**
+  Blockstorlek: varje I/O-operation använder block om 64 KB.
+  (Standard är 64 KB, men du kan ändra beroende på vad du vill simulera, t.ex. 8K för databasliknande mönster.)
+
+* **`-d30`**
+  Testets varaktighet: körs i 30 sekunder.
+
+* **`-o4`**
+  Queue depth / Outstanding I/O: upp till 4 I/O-operationer hålls "ute" samtidigt per tråd.
+  (Detta simulerar flera samtidiga begäran, ungefär som ett system med köer mot disken.)
+
+* **`-t4`**
+  Antal trådar per målfil: här 4 trådar.
+  I praktiken betyder det att testet parallelliseras för att belasta disken mer realistiskt.
+
+* **`-w100`**
+  Skriv-andel (%). 100 = rent skrivtest.
+  (0 skulle vara rent lästest, 50 en mix av läs/skriv.)
+
+* **`-si`**
+  Disable software caching: inaktiverar *software caching* i operativsystemet.
+  Gör testet mer "rått" och hårdvarunära.
+
+* **`-W0`**
+  Write-through mode: `0` = stäng av skrivcache (dvs skriver direkt till disk, utan att buffras i cache).
+  Detta ger en mer konservativ bild av verklig skrivprestanda.
+
+* **`-L`**
+  Logga latens för varje I/O och skriv till konsolen.
+  Bra för analys av variation i responstider, inte bara total MB/s.
+
+* **`C:\temp\writetest.dat`**
+  Målfilen som testet körs mot. DiskSpd skapar och använder denna fil under körning.
+  (Bra att välja en mapp på den disk du vill mäta.)
+
+---
+
+### 📝 Sammanfattning
+
+Kommando kör ett **30 sekunder långt, 100 % skrivtest** mot `C:\temp\writetest.dat` med:
+
+* blockstorlek 64 KB,
+* 4 trådar,
+* 4 outstanding I/O per tråd (totalt upp till 16 samtidiga I/O),
+* utan OS-cache och med write-through (för mer realistiska värden),
+* och loggar latens.
+
+---
+
+Vill du att jag gör en **visuell tabell** med alla parametrar och deras effekt (som du kan använda i en kurs eller rapport)?
+
 Wait for some time for the program to finish.
 
 ## Understanding the Output
