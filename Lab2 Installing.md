@@ -176,7 +176,8 @@ Write performance depends heavily on cache behavior and flush policy.
 
 - Download **CrystalDiskMark9_0_1.exe** from **https://github.com/roblevay/T1987**
 - Install the application using default settings
-- In the **Admin** program, click **All**. Wait for about 5 minutes for the program to run.
+- In the **Admin** program, seleect dick **c:** amd click **All**. Wait for about 5 minutes for the program to run.
+- Repeat the procedure awith disk **d:** and compare the results
 
 Here is an explanation of the values on the left. You will get values for **Read MB/s** and **Write MB/s** in each box.
 
