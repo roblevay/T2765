@@ -172,7 +172,7 @@ c:\temp\diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\temp\writetest.dat
 Write performance depends heavily on cache behavior and flush policy.
 
 
-# Exercise 7 : ChrystalDiskMark
+# Exercise 7 : CrystalDiskMark
 
 - Download **CrystalDiskMark9_0_1.exe** from **https://github.com/roblevay/T1987**
 - Install the application using default settings
