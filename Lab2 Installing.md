@@ -136,13 +136,13 @@ Test write performance with 64 KB blocks, 100% sequential writes,  4 threads, 30
 ## Step 1 – Create test file
 
 ```cmd
-fsutil file createnew C:\test\writetest.dat 1073741824
+fsutil file createnew C:\temp\writetest.dat 1073741824
 ```
 
 ## Step 2 – Run DiskSpd
 
 ```cmd
-c:\temp\diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\test\writetest.dat
+c:\temp\diskspd -b64K -d30 -o4 -t4 -w100 -si -W0 -L C:\temp\writetest.dat
 ```
 
 ## Output Interpretation
