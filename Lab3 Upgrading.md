@@ -175,7 +175,7 @@ SET COMPATIBILITY_LEVEL = 150;
    - Select **This account**
    - Enter:
      - **User**: `Student`
-     - **Password**: `myS3cret`
+     - **Password**: <The password provided>
 5. Click **OK** and start/restart the SQL Server Agent service.
 
 ---
