@@ -119,6 +119,8 @@ Restart SQL Server. Verify the files are created in the new location. Delete the
 
 **Create the folder C:\DbFiles\X**
 
+**Give the user student full permission to this folder**
+
 **Detach from default instance:**
 ```sql
 EXEC sp_detach_db 'CRM';
