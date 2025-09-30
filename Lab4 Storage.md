@@ -117,7 +117,7 @@ Restart SQL Server. Verify the files are created in the new location. Delete the
 
 ### Answer Suggestion
 
-**Create the folder
+**Create the folder C:\DbFiles\X**
 
 **Detach from default instance:**
 ```sql
