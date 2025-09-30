@@ -15,3 +15,7 @@ mstsc /v 4.223.84.69
 ```
 https://1drv.ms/f/c/fb5c7f8b8caa2fb7/EjknQCgh0tNDij3OpGIm1wIBUViv2yxGAQWEyqUIX3i8xg?e=Ma5EOk
 ```
+
+## Data Migration Assistant
+
+https://www.microsoft.com/en-us/download/details.aspx?id=53595
