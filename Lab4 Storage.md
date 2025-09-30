@@ -122,6 +122,8 @@ Restart SQL Server. Verify the files are created in the new location. Delete the
 **Give the user student full permission to this folder**
 
 **Detach from default instance:**
+
+**Copy the CRM files to the C:\DbFiles\X folder**
 ```sql
 EXEC sp_detach_db 'CRM';
 ```
