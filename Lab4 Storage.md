@@ -108,14 +108,16 @@ Restart SQL Server. Verify the files are created in the new location. Delete the
 ### Instructions
 
 1. Detach the `CRM` database from the default instance.
-2. Copy the database files to `C:\DbFiles\A`.
+2. Copy the database files to `C:\DbFiles\X`.
 3. Ensure the `MSSQL$A` service account has full ownership and permissions.
-4. Attach the database on the `A` instance.
+4. Attach the database on the `X` instance.
 5. Re-attach the original copy on the default instance.
 
 ---
 
 ### Answer Suggestion
+
+**Create the folder
 
 **Detach from default instance:**
 ```sql
@@ -125,9 +127,9 @@ EXEC sp_detach_db 'CRM';
 **Attach on A-instance:**
 ```sql
 CREATE DATABASE CRM ON
-(FILENAME = N'C:\DbFiles\a\CRM.mdf'),
-(FILENAME = N'C:\DbFiles\a\CRM_HistoryData.ndf'),
-(FILENAME = N'C:\DbFiles\a\CRM_log.ldf')
+(FILENAME = N'C:\DbFiles\X\CRM.mdf'),
+(FILENAME = N'C:\DbFiles\X\CRM_HistoryData.ndf'),
+(FILENAME = N'C:\DbFiles\X\CRM_log.ldf')
 FOR ATTACH;
 ```
 
