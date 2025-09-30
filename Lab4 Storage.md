@@ -2,7 +2,7 @@
 
 ## Step 1 – Create a Database
 
-**Check for the existence of the database CRM on the A instance. If it exists, drop the database**
+**Check for the existence of the database CRM on the default instance. If it exists, drop the database**
 
 ### Instructions
 
