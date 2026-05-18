@@ -1,4 +1,4 @@
-# Kort handledning – skapa ett gMSA för SQL Server
+# Kort handledning – skapa ett gMSA (Group Managed Service  Account) för SQL Server
 
 ## Förutsättningar
 
