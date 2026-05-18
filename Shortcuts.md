@@ -4,7 +4,7 @@
 mstsc /v 20.91.188.60
 ```
 
-## Student02 Mikael
+## Student02 Therése
 
 ```cmd
 mstsc /v 20.91.233.51
