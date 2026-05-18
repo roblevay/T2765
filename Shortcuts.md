@@ -1,4 +1,4 @@
-## Student01 Mikaela
+## Student01 Mihaela
 
 ```cmd
 mstsc /v 20.91.188.60
