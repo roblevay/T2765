@@ -27,3 +27,7 @@ https://www.microsoft.com/en-us/evalcenter/download-sql-server-2022?utm_source=c
 ## SQL Server 2025
 
 https://www.microsoft.com/en-us/evalcenter/sql-server-2025-download
+
+## Data Migration Assistant
+
+https://www.microsoft.com/en-us/download/details.aspx?id=53595
