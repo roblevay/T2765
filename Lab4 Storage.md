@@ -43,7 +43,7 @@ GO
 ALTER DATABASE tempdb 
 ADD FILE (
     NAME = temp3, 
-    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\tempdb_mssql_3.ndf', 
+    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\tempdb_mssql_3.ndf', 
     SIZE = 64MB, 
     FILEGROWTH = 64MB
 );
@@ -52,7 +52,7 @@ GO
 ALTER DATABASE tempdb 
 ADD FILE (
     NAME = temp4, 
-    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\tempdb_mssql_4.ndf', 
+    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\tempdb_mssql_4.ndf', 
     SIZE = 64MB, 
     FILEGROWTH = 64MB
 );
